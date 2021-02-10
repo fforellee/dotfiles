@@ -28,13 +28,16 @@ nnoremap <leader>T : call Toggle_transparent()<CR>
 nnoremap <leader>/ : noh <CR>
 nnoremap <leader>S : source %
 nnoremap <leader>a : !python 
+nnoremap <leader>p : LLPStartPreview 
 
-call plug#begin('~/local/nvim-data/site/autoload/plug.vim')
+call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tpope/vim-commentary'
+Plug 'VundleVim/Vundle.vim'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 
 call plug#end()
 
