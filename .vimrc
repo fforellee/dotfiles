@@ -26,7 +26,7 @@ let mapleader ="\<space>"
 
 nnoremap <leader>T : call Toggle_transparent()<CR>
 nnoremap <leader>/ : noh <CR>
-nnoremap <leader>S : source %
+nnoremap <leader>s : source %
 
 
 nnoremap <leader>a : !python 
@@ -35,21 +35,35 @@ nnoremap <leader>p : LLPStartPreview
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tpope/vim-commentary'
 Plug 'VundleVim/Vundle.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'honza/vim-snippets'
+
+" Syntax highlighter
+
+Plug 'uiiaoo/ava-syntax.vim'
+Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
 
 call vundle#begin()
 
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plugin 'vim-prettier'
 
 call vundle#end()
+"Vim Latex
+
+g:Tex_CompileRule_<"pdf">
+g:Tex_DefaultTargetFormat="pdf"
+
+"Vim latex preview
+
+nnoremap <leader>l : :LLPStartPreview
 
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -64,6 +78,12 @@ let g:bracey_server_allow_remote_connections=1
 let g:bracey_server_port=8080                           
 
 "Coc config
+
+    ":CocCommand snippets.editSnippets
+    ":CocInstall
+    ":CocCommand snippets.editSnippets
+    ":CocList snippets
+    "~/.config/coc/ultisnips/.snippets    
 
 let g:coc_global_extensions = [
             \'coc-css',
