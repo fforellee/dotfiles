@@ -1,2 +1,0 @@
-wget https://github.com/Figma-Linux/figma-linux/releases   
-
