@@ -9,6 +9,7 @@
 
 syntax on
 
+color Atelier_CaveDark
 set relativenumber 
 set clipboard+=unnamedplus
 set number 
@@ -40,12 +41,15 @@ Plug 'VundleVim/Vundle.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'honza/vim-snippets'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/0.x'
+  \ }
 
 " Syntax highlighter
 
-Plug 'uiiaoo/ava-syntax.vim'
+Plug 'uiiaoo/java-syntax.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
@@ -53,7 +57,6 @@ call plug#end()
 call vundle#begin()
 
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plugin 'vim-prettier'
 
 call vundle#end()
 "Vim Latex
