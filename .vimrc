@@ -35,6 +35,7 @@ nnoremap <leader>p : LLPStartPreview
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'iamcco/markdown-preview.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'VundleVim/Vundle.vim'
@@ -56,6 +57,7 @@ call plug#end()
 
 call vundle#begin()
 
+Plugin 'iamcco/markdown-preview.vim'
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call vundle#end()
