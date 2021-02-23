@@ -59,6 +59,7 @@ call vundle#begin()
 
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 "Vim Latex
