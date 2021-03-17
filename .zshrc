@@ -196,4 +196,9 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 PATH=$PATH:~/anaconda3/bin:/home/fforelle/node-v14.15.4-linux-x64/bin
+PATH=$PATH:/opt/idafree-7.0
+PATH=$PATH:/usr/share/metasploit-framework
+PATH=$PATH:/home/fforelle/cmdline-tools/bin
+PATH=$PATH:/home/fforelle/Android/Sdk/build-tools/30.0.3
 export PATH
+alias cls=clear

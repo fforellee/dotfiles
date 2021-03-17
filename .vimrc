@@ -1,15 +1,16 @@
+
  ".d88b.  .d88b.  .d88b. .d8888b  .d88b."  
 "d88P"88bd88""88bd88""88b88K     d8P  Y8b" 
 "888  888888  888888  888"Y8888b.88888888"
 "Y88b 888Y88..88PY88..88P     X88Y8b."     
- "Y88888 "Y88P"  "Y88P"  88888P' "Y8888  
-     888                                 
+ "Y88888 Y88P"  Y88P"  88888P' Y8888"
+     "888"                                 
 "Y8b d88P"                                 
  "Y88P"                                  
 
 syntax on
 
-color Atelier_CaveDark
+color PaperColor
 set relativenumber 
 set clipboard+=unnamedplus
 set number 
@@ -27,7 +28,6 @@ let mapleader ="\<space>"
 
 nnoremap <leader>T : call Toggle_transparent()<CR>
 nnoremap <leader>/ : noh <CR>
-nnoremap <leader>s : source %
 
 
 nnoremap <leader>a : !python 
@@ -39,7 +39,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'VundleVim/Vundle.vim'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'conornewton/vim-latex-preview'
 Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
@@ -59,18 +59,14 @@ call vundle#begin()
 
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'wokalski/autocomplete-flow'
 
 call vundle#end()
 "Vim Latex
 
-g:Tex_CompileRule_<"pdf">
-g:Tex_DefaultTargetFormat="pdf"
 
 "Vim latex preview
-
-nnoremap <leader>l : :LLPStartPreview
-
+let g:latex_pdf_viewer="<okular>"
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -91,12 +87,22 @@ let g:bracey_server_port=8080
     ":CocList snippets
     "~/.config/coc/ultisnips/.snippets    
 
+"Vim YouCompleteMe"
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 let g:coc_global_extensions = [
             \'coc-css',
             \'coc-json',
             \'coc-snippets'
             \]
-
+"Latex config
+map  <leader>c:! pdflatex %<CR><CR>
+map  <leader>f:! mupdf-x11 $(echo % \| sed 's/tex$/pdf') $ disown<CR>
+"
+"
+"
+"
+"
 " TextEdit might fail if hidden is not set.
 set hidden
 
