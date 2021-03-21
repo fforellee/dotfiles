@@ -39,7 +39,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'VundleVim/Vundle.vim'
-Plug 'conornewton/vim-latex-preview'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
 Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
@@ -66,7 +66,9 @@ call vundle#end()
 
 
 "Vim latex preview
-let g:latex_pdf_viewer="<okular>"
+let g:livepreview_previewer = 'okular'
+let g:livepreview_cursorhold_recompile = 0
+
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
