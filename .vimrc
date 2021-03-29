@@ -8,9 +8,13 @@
 "Y8b d88P"                                 
  "Y88P"                                  
 
-syntax on
+"Scripts vim plug
+"windows iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+"Linux curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimsyntax on
 
-color PaperColor
+"Scripts vundle
+"
+color jellybeans
 set relativenumber 
 set clipboard+=unnamedplus
 set number 
@@ -43,10 +47,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
 Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/0.x'
-  \ }
+Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x'}
 
 " Syntax highlighter
 
@@ -57,18 +58,22 @@ call plug#end()
 
 call vundle#begin()
 
+Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plugin 'wokalski/autocomplete-flow'
 
 call vundle#end()
-"Vim Latex
 
 
 "Vim latex preview
 let g:livepreview_previewer = 'okular'
 let g:livepreview_cursorhold_recompile = 0
 
+"latex LLPStartPreview
+
+"vim live-server
+g:bracey_server_port=34703
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
