@@ -53,7 +53,6 @@ Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x'}
 
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'JuliaEditorSupport/julia-vim'
-
 call plug#end()
 
 call vundle#begin()
