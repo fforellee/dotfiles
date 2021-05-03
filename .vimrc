@@ -48,6 +48,8 @@ Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
 Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x'}
+Plug 'wokalski/autocomplete-flow'
+Plug 'ycm-core/YouCompleteMe'
 
 " Syntax highlighter
 
@@ -61,6 +63,8 @@ Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plugin 'wokalski/autocomplete-flow'
+Plugin 'ying17zi/vim-live-latex-preview'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 
