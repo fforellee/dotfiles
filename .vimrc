@@ -14,7 +14,7 @@
 
 "Scripts vundle
 "
-color jellybeans
+color blackboard
 set relativenumber 
 set clipboard+=unnamedplus
 set number 
