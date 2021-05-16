@@ -38,11 +38,11 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=10
-URxvt.boldFont: xft:Iosevka:style=Bold:size=10
-URxvt.italicFont: xft:Iosevka:style=Italic:size=10
-URxvt.boldItalicFont: xft:Iosevka:style=Bold Italic:size=10
-URxvt.letterSpace: 0
+URxvt.font: xft:inconsolata:style=Regular:size=12
+URxvt.boldFont: xft:inconsolata:style=Bold:size=12
+URxvt.italicFont: xft:inconsolata:style=Italic:size=12
+URxvt.boldItalicFont: xft:inconsolata:style=Bold Italic:size=12
+URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 24
@@ -51,7 +51,7 @@ URxvt.cursorUnderline: false
 URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 /* URxvt.urgentOnBell: true */
 /* URxvt.depth: 24 */
 /* URxvt.iso14755: false */

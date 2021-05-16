@@ -28,13 +28,13 @@ if has('gui_running')
     hi MoreMsg guifg=SeaGreen
     hi NonText guifg=RoyalBlue guibg=#151825 ctermfg=234
     hi Question guifg=springgreen
-    hi Search guibg=#0099ff guifg=White
+    hi Search guibg=#463080 guifg=White
     hi Visual gui=none guifg=khaki guibg=olivedrab
 
     hi SpecialKey guifg=#cbfe29 ctermfg=190
     hi Title guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
     hi Statement guifg=#ff6600 ctermfg=202
-    hi htmlStatement guifg=#61c3fe ctermfg=39
+    hi htmlStatement guifg=#463080 ctermfg=39
     hi String guifg=#99ec5c ctermfg=155
     hi Comment guifg=grey35 ctermfg=240
     hi CommentDoc guifg=grey50 ctermfg=244
@@ -42,7 +42,7 @@ if has('gui_running')
     hi Constant guifg=#cbfe29 ctermfg=190
     hi Special guifg=#86A7D0 ctermfg=110
     hi Identifier guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Include guifg=#ffde00 ctermfg=220
+    hi Include guifg=#f54033 ctermfg=220
     hi PreProc guifg=grey ctermfg=grey
     hi Operator gui=bold guifg=#ff9900 ctermfg=208 cterm=bold
     hi Define guifg=#ffde00 gui=bold ctermfg=220 cterm=bold
@@ -79,7 +79,7 @@ else
     hi SpecialKey guifg=#cbfe29 ctermfg=190
     hi Title guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
     hi Statement guifg=#ff6600 ctermfg=202
-    hi htmlStatement guifg=#61c3fe ctermfg=39
+    hi htmlStatement guifg=#463080 ctermfg=39
     hi String guifg=#99ec5c ctermfg=155
     hi Comment guifg=grey35 ctermfg=240
     hi CommentDoc guifg=grey50 ctermfg=244
@@ -87,12 +87,12 @@ else
     hi Constant guifg=#cbfe29 ctermfg=190
     hi Special guifg=#86A7D0 ctermfg=110
     hi Identifier guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Include guifg=#ffde00 ctermfg=220
+    hi Include guifg=#f54033 ctermfg=220
     hi PreProc guifg=grey ctermfg=grey
     hi Operator gui=bold guifg=#ff9900 ctermfg=208 cterm=bold
-    hi Define guifg=#ffde00 gui=bold ctermfg=220 cterm=bold
+    hi Define guifg=#f54433 gui=bold ctermfg=220 cterm=bold
     hi Type guifg=#61c3fe ctermfg=39
-    hi Function guifg=#ffde00 gui=NONE ctermfg=220
+    hi Function guifg=#f54433 gui=NONE ctermfg=220
     hi Structure gui=bold guifg=#ff6600 ctermfg=202 cterm=bold
 
     hi Ignore guifg=grey40 ctermfg=241

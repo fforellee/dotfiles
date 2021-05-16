@@ -3,7 +3,7 @@
 "d88P"88bd88""88bd88""88b88K     d8P  Y8b" 
 "888  888888  888888  888"Y8888b.88888888"
 "Y88b 888Y88..88PY88..88P     X88Y8b."     
- "Y88888 Y88P"  Y88P"  88888P' Y8888"
+ "Y88888   Y88P"  Y88P"  88888P'  Y8888"
      "888"                                 
 "Y8b d88P"                                 
  "Y88P"                                  
@@ -13,8 +13,10 @@
 "Linux curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimsyntax on
 
 "Scripts vundle
-"
+
 color blackboard
+set wrap
+set encoding=utf-8
 set relativenumber 
 set clipboard+=unnamedplus
 set number 
@@ -38,45 +40,37 @@ nnoremap <leader>a : !python
 nnoremap <leader>p : LLPStartPreview 
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'iamcco/markdown-preview.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'VundleVim/Vundle.vim'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
-Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
-Plug 'neoclide/coc.nvim'
-Plug 'honza/vim-snippets'
-Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x'}
-Plug 'wokalski/autocomplete-flow'
-Plug 'ycm-core/YouCompleteMe'
-
-" Syntax highlighter
-
-Plug 'uiiaoo/java-syntax.vim'
-Plug 'JuliaEditorSupport/julia-vim'
+    Plug 'ap/vim-css-color'
+    Plug 'iamcco/markdown-preview.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'tpope/vim-commentary'
+    Plug 'VundleVim/Vundle.vim'
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
+    Plug 'turbio/bracey.vim',{'do': 'npm install --prefix server'}
+    Plug 'neoclide/coc.nvim'
+    Plug 'honza/vim-snippets'
+    Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x'}
+    Plug 'wokalski/autocomplete-flow'
+    Plug 'ycm-core/YouCompleteMe'
+    " Syntax highlighter
+    Plug 'uiiaoo/java-syntax.vim'
+    Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 call vundle#begin()
-
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plugin 'wokalski/autocomplete-flow'
-Plugin 'ying17zi/vim-live-latex-preview'
-Plugin 'ycm-core/YouCompleteMe'
-
+    Plugin 'xolox/vim-colorscheme-switcher'
+    Plugin 'iamcco/markdown-preview.vim'
+    Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    Plugin 'wokalski/autocomplete-flow'
+    Plugin 'ying17zi/vim-live-latex-preview'
+    Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
 
 "Vim latex preview
-let g:livepreview_previewer = 'okular'
+let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
 
-"latex LLPStartPreview
-
-"vim live-server
-g:bracey_server_port=34703
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

@@ -7,15 +7,16 @@ while true; do
 done &
 while true; do
 
-        LOCALTIME=$(< /tmp/CurTime.tmp)
-        DISKFREE=$(df -Ph | grep "/dev/sda3" | awk {'print $4'})
-        DISKUSED=$(df -Ph | grep "/dev/sda3" | awk {'print $3'})
+        # LOCALTIME=$(< /tmp/CurTime.tmp)
+        # DISKFREE=$(df -Ph | grep "/dev/sda2" | awk {'print $4'})
+        DISKUSED=$(df -Ph | grep "/dev/sda2" | awk {'print $3'})
         MEM=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
-        LINUX=$(uname -r)
-        NET=$(nmcli dev wifi | grep -E '^[*]' | awk '/*/ {print $8}')
-        TOTALDOWN=$(ifconfig wlp2s0| grep "RX packets" | awk {'print $6 $7'})
-        TOTALUP=$(ifconfig wlp2s0| grep "TX packets" | awk {'print $6 $7'})
-        xsetroot -name "$LOCALTIME ; | Kernel:$LINUX | Disk Free:$DISKFREE | Disk Used:$DISKUSED | Mem:$MEM | Net: $NET TotalUp: $TOTALUP TotalDown: $TOTALDOWN |"
+        # LINUX=$(uname -r)
+        # NET=$(nmcli dev wifi | grep -E '^[*]' | awk '/*/ {print $8}')
+        # TOTALDOWN=$(ifconfig wlp2s0| grep "RX packets" | awk {'print $6 $7'})
+        # TOTALUP=$(ifconfig wlp2s0| grep "TX packets" | awk {'print $6 $7'})
+        # xsetroot -name "$LOCALTIME ; | Kernel:$LINUX | Disk Free:$DISKFREE | Disk Used:$DISKUSED | Mem:$MEM | Net: $NET TotalUp: $TOTALUP TotalDown: $TOTALDOWN |"
+        xsetroot -name "| Disk Used:$DISKUSED | Mem:$MEM |" 
 
         sleep 10s
 
