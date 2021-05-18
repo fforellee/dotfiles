@@ -58,7 +58,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 call vundle#begin()
-    Plugin 'xolox/vim-colorscheme-switcher'
     Plugin 'iamcco/markdown-preview.vim'
     Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
     Plugin 'wokalski/autocomplete-flow'

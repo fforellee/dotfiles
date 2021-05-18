@@ -1,3 +1,4 @@
+highlight clear
 set bg=dark
 hi clear
 if exists("syntax_on")
