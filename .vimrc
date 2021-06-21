@@ -1,4 +1,4 @@
-
+" ~J~o~r~m~u~n~g~a~n~d~r~
 
  " Nota sobre o meu atual setup do vim, eu vou descrevr alguns dos processos
  " importantes para rodar plugins essenciais pra mim, no momento n sei
@@ -14,7 +14,7 @@
 "Scripts vundle
 
 "preferencias 
-color blackboard
+
 set wrap
 set encoding=utf-8
 set relativenumber 
@@ -34,12 +34,9 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 "leader key
 let mapleader ="\<Tab>"
 
-nnoremap <leader>T : call Toggle_transparent()<CR>
-nnoremap <leader>/ : noh <CR>
-
-
+"Key mapings 
 nnoremap <leader>a : !python 
-nnoremap <leader>p : LLPStartPreview 
+nnoremap <leader>/ : noh <CR>
 
 call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
@@ -48,7 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'VundleVim/Vundle.vim'
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
-    Plug 'neoclide/coc.nvim'
+    Plug 'neoclide/coc.nvim',{'branch':'release'}
     Plug 'honza/vim-snippets'
 " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
@@ -84,12 +81,23 @@ let g:bracey_server_port=8080
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "Latex config
-map  <leader>c:! pdflatex %<CR><CR>
-map  <leader>f:! mupdf-x11 $(echo % \| sed 's/tex$/pdf') $ disown<CR>
+nnoremap  <leader>\:! pdflatex %<CR><CR>
+nnoremap  <leader>f:! mupdf-x11 $(echo % \| sed 's/tex$/pdf') $ disown<CR>
 
 "Vim coc config
-let g:coc_global_extension2s = [
-    'coc-snippets',
-    'coc-pairs',
-    'coc-prettier',
-    ]
+"
+" Para utilizar o coc e necessario instalar o nodejs, eu 
+" prefiri utilizar o coc em vez de outros plugins porque 
+" e mais facil de configurar 
+"
+" let g:coc_global_extension2s = [
+"     'coc-snippets',
+"     'coc-pairs',
+"     'coc-prettier',
+"     ]
+" Install plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
