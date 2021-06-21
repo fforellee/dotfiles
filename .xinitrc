@@ -1,5 +1,5 @@
 
 xwallpaper --zoom ~/wallpaper.jpg
 
-exec i3
+exec dwm
 
