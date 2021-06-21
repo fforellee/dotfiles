@@ -2,7 +2,7 @@
 
 ! special
 *.foreground: #93a1a1
-*.background: #000000
+*.background: #05060a
 *.cursorColor: #c5c8c6
 
 ! black
@@ -38,10 +38,10 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-URxvt.font: xft:inconsolata:style=Regular:size=12
-URxvt.boldFont: xft:inconsolata:style=Bold:size=12
-URxvt.italicFont: xft:inconsolata:style=Italic:size=12
-URxvt.boldItalicFont: xft:inconsolata:style=Bold Italic:size=12
+URxvt.font: xft:inconsolata:style=Regular:size=13
+URxvt.boldFont: xft:inconsolata:style=Bold:size=13
+URxvt.italicFont: xft:inconsolata:style=Italic:size=13
+URxvt.boldItalicFont: xft:inconsolata:style=Bold Italic:size=13
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 /* URxvt.geometry: 80x24 */

@@ -44,7 +44,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-commentary'
     Plug 'VundleVim/Vundle.vim'
-    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}
     Plug 'neoclide/coc.nvim',{'branch':'release'}
     Plug 'honza/vim-snippets'
 " Syntax highlighter
@@ -54,15 +53,9 @@ call plug#end()
 
 call vundle#begin()
     Plugin 'iamcco/markdown-preview.vim'
-    Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-    Plugin 'ying17zi/vim-live-latex-preview'
     Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
-
-"Vim latex preview
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_cursorhold_recompile = 0
 
 "Nerd tree config
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -81,8 +74,8 @@ let g:bracey_server_port=8080
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "Latex config
-nnoremap  <leader>\:! pdflatex %<CR><CR>
-nnoremap  <leader>f:! mupdf-x11 $(echo % \| sed 's/tex$/pdf') $ disown<CR>
+
+map <leader>\ :! pdflatex %<CR><CR>
 
 "Vim coc config
 "
@@ -96,8 +89,12 @@ nnoremap  <leader>f:! mupdf-x11 $(echo % \| sed 's/tex$/pdf') $ disown<CR>
 "     'coc-prettier',
 "     ]
 " Install plugins on startup
+
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
 
+"Vim hex 
+map <leader>h :%!xxd <CR><CR>
+map <leader>H :%!xxd -r <CR><CR>
