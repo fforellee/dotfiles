@@ -98,3 +98,5 @@ autocmd VimEnter *
 "Vim hex 
 map <leader>h :%!xxd <CR><CR>
 map <leader>H :%!xxd -r <CR><CR>
+"Vim live-preview
+map <leader>l :!live-server $(pwd) & <CR><CR>
