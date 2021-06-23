@@ -35,11 +35,10 @@ set expandtab
 set ft=xxd
 set termguicolors
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-"leader key
-let mapleader ="\<Tab>"
 
-"Key mapings 
-nnoremap <leader>/ : noh <CR>
+"leader key
+"
+let mapleader ="\<Tab>"
 
 call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
@@ -52,7 +51,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
 " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
-    Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 call vundle#begin()
@@ -61,25 +59,6 @@ call vundle#begin()
 call vundle#end()
 
 
-"Nerd tree config
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-"Bracey Config
-
-let g:bracey_auto_start_browser=0                                
-let g:bracey_server_allow_remote_connections=1                   
-let g:bracey_server_port=8080                           
-
-"Vim YouCompleteMe"
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-"Latex config
-
-map <leader>\ :! pdflatex %<CR><CR>
 
 "Vim coc config
 "
@@ -94,25 +73,23 @@ map <leader>\ :! pdflatex %<CR><CR>
 "     ]
 " Install plugins on startup
 
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
+" Keybings
+"
 "Vim keybings
 "
 "
 "Vim hex 
-map <leader>h :%!xxd <CR><CR>
-map <leader>H :%!xxd -r <CR><CR>
-map <leader>bh :%!xxd -b <CR><CR>
+noremap <leader>h :%!xxd <CR><CR>
+noremap <leader>H :%!xxd -r <CR><CR>
+noremap <leader>bh :%!xxd -b <CR><CR>
 "Vim registers
-map <leader>r :reg <CR>
+noremap <leader>vr :reg <CR>
 "Vim marks
-map <leader>m :marks <CR>
+noremap <leader>vm :marks <CR>
 "Vim colorschemes
-map <leader>C :colorscheme 
+noremap <leader>C :colorscheme 
 "Vim live-preview
-map <leader>l :!live-server $(pwd) & <CR><CR>
+noremap <leader>vl :!live-server $(pwd) & <CR><CR>
 " End of Vim keybingins
 "
 "
@@ -126,3 +103,16 @@ nnoremap <leader>gc : Git commit -m "
 nnoremap <leader>ga : Git add .      <CR>
 nnoremap <leader>gs : Git status     <CR>
 nnoremap <leader>gp : Git push 
+"
+"
+"Latex config
+map <leader>\ :! pdflatex %<CR><CR>
+" map <leader>z :! pdflatex %<CR><CR>
+"
+"
+"
+"Nerd tree config
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
