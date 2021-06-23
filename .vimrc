@@ -1,9 +1,8 @@
 " ~J~o~r~m~u~n~g~a~n~d~r~
 
- " Nota sobre o meu atual setup do vim, eu vou descrevr alguns dos processos
- " importantes para rodar plugins essenciais pra mim, no momento n sei
- " utilizar o latex preview, contudo sei que para fazer algusn dos
- " autocomplete funcionar eu preciso compilar o vim eu mesmo
+ " Nota sobre o meu atual setup do vim, eu vou descrever alguns dos processos
+ " importantes para rodar plugins essenciais pra mim,
+ " para fazer algusn dos autocomplete funcionar eu preciso compilar o vim eu mesmo
  " para compilar o vim manualmente e necessario clonar o repositorio
  " git clone https://github.com/vim/vim
 
@@ -16,6 +15,7 @@
 "preferencias 
 
 set wrap
+colorscheme black_angus
 set encoding=utf-8
 set relativenumber 
 set clipboard+=unnamedplus
@@ -30,17 +30,18 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab 
 set ft=xxd
+set termguicolors
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 "leader key
 let mapleader ="\<Tab>"
 
 "Key mapings 
-nnoremap <leader>a : !python 
 nnoremap <leader>/ : noh <CR>
 
 call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
     Plug 'iamcco/markdown-preview.vim'
+    Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-commentary'
     Plug 'VundleVim/Vundle.vim'
@@ -94,9 +95,30 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
-
+"Vim keybings
+"
+"
 "Vim hex 
 map <leader>h :%!xxd <CR><CR>
 map <leader>H :%!xxd -r <CR><CR>
+map <leader>bh :%!xxd -b <CR><CR>
+"Vim registers
+map <leader>r :reg <CR>
+"Vim marks
+map <leader>m :marks <CR>
+"Vim colorschemes
+map <leader>C :colorscheme 
 "Vim live-preview
 map <leader>l :!live-server $(pwd) & <CR><CR>
+" End of Vim keybingins
+"
+"
+" Python keybings
+nnoremap <leader>p : !python % <CR>
+" End of Python keybings
+"
+"
+"Fugitive
+nnoremap <leader>gc : Git commit -m "
+nnoremap <leader>ga : Git add .      <CR>
+nnoremap <leader>gs : Git status     <CR>
