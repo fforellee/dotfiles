@@ -4,6 +4,9 @@
  " importantes para rodar plugins essenciais pra mim,
  " para fazer algusn dos autocomplete funcionar eu preciso compilar o vim eu mesmo
  " para compilar o vim manualmente e necessario clonar o repositorio
+ " No momento so me falta o autocompletar, para assim finalmente tero setup
+ " ideal parte 1 do meu vimrc, foram alguns meses de preparacao e pratica,
+ " finalmente consegui me integrar com o vim.
  " git clone https://github.com/vim/vim
 
 "Scripts de instalacao do vim plug
@@ -122,3 +125,4 @@ nnoremap <leader>p : !python % <CR>
 nnoremap <leader>gc : Git commit -m "
 nnoremap <leader>ga : Git add .      <CR>
 nnoremap <leader>gs : Git status     <CR>
+nnoremap <leader>gp : Git push 
