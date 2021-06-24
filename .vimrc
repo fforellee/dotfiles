@@ -134,8 +134,6 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <leader>ci :CocInstall 
 
 
-
-
 " Install missings puglins
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
