@@ -1,5 +1,3 @@
-
-xwallpaper --zoom ~/wallpapers/lain1.jpg
-
+xwallpaper --zoom ~/wallpapers/lain2.jpg
 exec dwm
-
+exec /root/dwmbar

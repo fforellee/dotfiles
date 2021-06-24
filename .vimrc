@@ -19,6 +19,7 @@
 
 set wrap
 colorscheme black_angus
+set hlsearch
 set encoding=utf-8
 set relativenumber 
 set clipboard+=unnamedplus
@@ -34,7 +35,8 @@ set shiftwidth=4
 set expandtab 
 set ft=xxd
 set termguicolors
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=magenta 
+call matchadd('ColorColumn','\%81v',100)
 
 "leader key
 "
@@ -42,13 +44,13 @@ let mapleader ="\<Tab>"
 
 call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
+    Plug 'lilydjwg/colorizer'
     Plug 'iamcco/markdown-preview.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-commentary'
     Plug 'VundleVim/Vundle.vim'
     Plug 'neoclide/coc.nvim',{'branch':'release'}
-    Plug 'honza/vim-snippets'
 " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
 call plug#end()
@@ -60,6 +62,9 @@ call vundle#end()
 
 
 
+"Plugin Config
+"
+"
 "Vim coc config
 "
 " Para utilizar o coc e necessario instalar o nodejs, eu 
@@ -71,7 +76,9 @@ call vundle#end()
 "     'coc-pairs',
 "     'coc-prettier',
 "     ]
-" Install plugins on startup
+"
+"
+" End of plugin config
 
 " Keybings
 "
@@ -98,21 +105,39 @@ nnoremap <leader>p : !python % <CR>
 " End of Python keybings
 "
 "
-"Fugitive
+"Fugitive keybings
 nnoremap <leader>gc : Git commit -m "
 nnoremap <leader>ga : Git add .      <CR>
 nnoremap <leader>gs : Git status     <CR>
 nnoremap <leader>gp : Git push 
 "
 "
-"Latex config
+"Latex/PDF keybings
 map <leader>\ :! pdflatex %<CR><CR>
-" map <leader>z :! pdflatex %<CR><CR>
+" map <leader>z :! silent call system("zathura".substitute(expand("%"), '.cext$', ".next", "pdf")) <CR>
+" map <leader>z :silent call system("zathura expand(%:r)"+".pdf")<CR>
+" noremap <leader>z :silent call system("zathura")<CR>
+noremap <expr> <silent> <leader>z system("zathura " . substitute(expand("%"), '.txt$', '.pdf', ""). " &")
+" noremap <expr> <silent> <leader>zl system("zathura " . substitute(expand("%"), '.txt$', '.pdf', ""). " &")
+" End of latex keybings
 "
 "
-"
-"Nerd tree config
+"Nerd tree keybings
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+" End of nerd tree keybindings
+"
+" 
+" Coc keybindings
+nnoremap <leader>ci :CocInstall 
+
+
+
+
+" Install missings puglins
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
