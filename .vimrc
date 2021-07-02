@@ -255,13 +255,17 @@ noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
 noremap <expr> <silent> <leader>vl system("live-server")
 " noremap <expr> <silent> <leader>vlc system("live-server")
-noremap <leader>vt :vert term<CR>
+noremap <leader>vv :vert term<CR>
+noremap <leader>vh :term<CR>
 "Plug Keybings
 noremap <leader>P :PlugInstall <CR>
 noremap <leader>Pc :PlugClean <CR>
 "Plugin Keybings
 noremap <leader>Pl :PluginInstall <CR>
 noremap <leader>Plc :PluginClean <CR>
+" C/C++ keybings
+" noremap <leader>gcc :!gcc % -o 
+noremap <leader>gcc :!gcc % -o %:r <CR>
 " Python keybings
 nnoremap <leader>p : !python % <CR>
 "Fugitive keybings
