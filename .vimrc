@@ -37,6 +37,18 @@ set ft=xxd
 set termguicolors
 highlight ColorColumn ctermbg=magenta 
 call matchadd('ColorColumn','\%81v',100)
+" Tabs with numbers
+
+noremap <leader>1 1gt <CR>
+noremap <leader>2 2gt <CR>
+noremap <leader>3 3gt <CR>
+noremap <leader>4 4gt <CR>
+noremap <leader>5 5gt <CR>
+noremap <leader>6 6gt <CR>
+noremap <leader>7 7gt <CR>
+noremap <leader>8 8gt <CR>
+noremap <leader>9 9gt <CR>
+" noremap <leader>0 :tablast<cr>
 
 "leader key
 "
@@ -249,11 +261,13 @@ nnoremap <C-k> :tabnext<CR>
 noremap <leader>h :%!xxd <CR><CR>
 noremap <leader>H :%!xxd -r <CR><CR>
 noremap <leader>bh :%!xxd -b <CR><CR>
+noremap <leader>ph :%!xxd -p <CR><CR>
 noremap <leader><Tab> :tabedit 
 noremap <leader>vr :reg <CR>
 noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
-noremap <expr> <silent> <leader>vl system("live-server")
+" noremap <expr> <silent> <leader>vl system("live-server")
+" Problems with running live server in a vim session, I will use tmux instead
 " noremap <expr> <silent> <leader>vlc system("live-server")
 noremap <leader>vv :vert term<CR>
 noremap <leader>vh :term<CR>
@@ -270,15 +284,16 @@ noremap <leader>gcc :!gcc % -o %:r <CR>
 nnoremap <leader>p : !python % <CR>
 "Fugitive keybings
 nnoremap <leader>gc : Git commit -m "
-nnoremap <leader>ga : Git add .      <CR>
+nnoremap <leader>ga : Git add .
 nnoremap <leader>gs : Git status     <CR>
 nnoremap <leader>gra : Git remote add 
 nnoremap <leader>gb : Git branch <CR>
-nnoremap <leader>gc : Git checkout 
+" nnoremap <leader>gc : Git checkout 
 nnoremap <leader>gp : Git push 
 "Latex/PDF keybings
 map <leader>\ :! pdflatex %<CR><CR>
-noremap <expr> <silent> <leader>z system("zathura " . substitute(expand("%"), '.txt$', '.pdf', ""). " &")
+noremap <expr> <silent> <leader>z system("zathura " . substitute(expand("%"), '.tex$', '.pdf', ""). " &")
+noremap <expr> <silent> <leader>lz system("zathura ")
 "Nerd tree keybings
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

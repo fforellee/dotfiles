@@ -1,3 +1,0 @@
-wget https://github.com/Figma-Linux/figma-linux/releases/tag/v0.7.5
-sudo dpkg -i figma-linux.deb
-
