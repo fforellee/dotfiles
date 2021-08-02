@@ -39,6 +39,7 @@ highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn','\%81v',100)
 " Tabs with numbers
 
+" noremap <leader>0 :tablast<cr>
 noremap <leader>1 1gt <CR>
 noremap <leader>2 2gt <CR>
 noremap <leader>3 3gt <CR>
@@ -48,10 +49,15 @@ noremap <leader>6 6gt <CR>
 noremap <leader>7 7gt <CR>
 noremap <leader>8 8gt <CR>
 noremap <leader>9 9gt <CR>
-" noremap <leader>0 :tablast<cr>
+
+" Default preferences 
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" nnoremap <C-j> :cnext<CR>zzzv
+nnoremap J mzJ`z
+inoremap , ,<C-g>u
 
 "leader key
-"
 let mapleader ="\<Tab>"
 
 call plug#begin('~/.vim/plugged')
@@ -59,6 +65,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'               "vim Surround text with other text
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview
     Plug 'tpope/vim-fugitive'               "Vim git plugin
+    Plug 'honza/vim-snippets'               "Vim git plugin
+    Plug 'prabirshrestha/vim-lsp'           "Vim git plugin
     Plug 'scrooloose/nerdtree'              "Tree view of files
     Plug 'tpope/vim-commentary'             "Vim automatic commentary
     Plug 'VundleVim/Vundle.vim'             "Vim plugin manager
