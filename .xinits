@@ -1,0 +1,7 @@
+wal -i ~/wallpapers/lain2.jpg
+exec dwm
+##ROOT##
+
+wal-i /home/fforelle/lain3.jpg
+exec i3
+##fforelle##

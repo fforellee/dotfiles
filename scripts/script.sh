@@ -17,8 +17,8 @@ cd ~
 git clone https://aur.archlinux.org/yay.git
 # installing aur pacakges 
 yay -S translate-shell
+yay -S pywal
 yay -S vim-plug
-yay -S transalte-shell
 #-------end-fforelle-------#
 # dotfiles
 sudo root #-------ROOT-------#

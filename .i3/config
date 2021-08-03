@@ -204,3 +204,4 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

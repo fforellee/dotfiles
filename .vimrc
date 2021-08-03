@@ -310,6 +310,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Coc keybindings
 nnoremap <leader>ci :CocInstall 
 nnoremap <leader>cc :CocConfig <CR>
+nnoremap <leader>cl :CocList <CR>
 " Coc snippets
 nnoremap <leader>cse :CocCommand snippets.editSnippets<CR>
 nnoremap <leader>csl :CocList snippets<CR>
