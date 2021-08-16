@@ -65,8 +65,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'               "vim Surround text with other text
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview
     Plug 'tpope/vim-fugitive'               "Vim git plugin
-    Plug 'honza/vim-snippets'               "Vim git plugin
-    Plug 'prabirshrestha/vim-lsp'           "Vim git plugin
+    Plug 'kkoomen/vim-doge'                 "Vim Doge
+    Plug 'honza/vim-snippets'               "Vim coc snippets
+    Plug 'prabirshrestha/vim-lsp'           "Vim lsp
     Plug 'scrooloose/nerdtree'              "Tree view of files
     Plug 'tpope/vim-commentary'             "Vim automatic commentary
     Plug 'VundleVim/Vundle.vim'             "Vim plugin manager
@@ -301,7 +302,7 @@ nnoremap <leader>gp : Git push
 "Latex/PDF keybings
 map <leader>\ :! pdflatex %<CR><CR>
 noremap <expr> <silent> <leader>z system("zathura " . substitute(expand("%"), '.tex$', '.pdf', ""). " &")
-noremap <expr> <silent> <leader>lz system("zathura ")
+noremap <expr> <silent> <leader>lz system("zathura "."&")
 "Nerd tree keybings
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -315,8 +316,10 @@ nnoremap <leader>cl :CocList <CR>
 nnoremap <leader>cse :CocCommand snippets.editSnippets<CR>
 nnoremap <leader>csl :CocList snippets<CR>
 nnoremap <leader>csd :CocCommand snippets.openSnippetFiles<CR>
-
+" qutebrowser
+noremap <expr> <silent> <leader>qu system("qutebrowser"."&")
 " Install missings puglins
+
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
