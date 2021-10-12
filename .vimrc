@@ -27,7 +27,7 @@ set number
 set noerrorbells 
 set incsearch 
 set noswapfile
-set nu
+set rnu
 set nowrap 
 set smartindent 
 set tabstop=4 softtabstop=4
@@ -62,6 +62,7 @@ let mapleader ="\<Tab>"
 
 call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'               "vim color highlighing
+    Plug 'puremourning/vimspector'          "Vim debugger
     Plug 'tpope/vim-surround'               "vim Surround text with other text
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview
     Plug 'tpope/vim-fugitive'               "Vim git plugin
@@ -69,6 +70,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'               "Vim coc snippets
     Plug 'prabirshrestha/vim-lsp'           "Vim lsp
     Plug 'scrooloose/nerdtree'              "Tree view of files
+    Plug 'szw/vim-maximizer'                "maximize window
     Plug 'tpope/vim-commentary'             "Vim automatic commentary
     Plug 'VundleVim/Vundle.vim'             "Vim plugin manager
     Plug 'neoclide/coc.nvim',{'branch':'release'} 
@@ -88,11 +90,10 @@ call vundle#end()
 "Coc config
 "
 "
-" let g:coc_global_extension2s = [
-"     'coc-snippets',
-"     'coc-pairs',
-"     'coc-prettier',
-"     ]
+" let g:coc_global_extension2s = [ */
+"     'coc-php', */
+"     'coc-java' */
+"     ] */
 "
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -271,10 +272,12 @@ noremap <leader>h :%!xxd <CR><CR>
 noremap <leader>H :%!xxd -r <CR><CR>
 noremap <leader>bh :%!xxd -b <CR><CR>
 noremap <leader>ph :%!xxd -p <CR><CR>
-noremap <leader><Tab> :tabedit 
+noremap <leader><Tab> :tabedit <CR><CR>
+noremap <leader>t     :tabedit 
 noremap <leader>vr :reg <CR>
 noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
+noremap <leader>d :diffthis <CR>
 " noremap <expr> <silent> <leader>vl system("live-server")
 " Problems with running live server in a vim session, I will use tmux instead
 " noremap <expr> <silent> <leader>vlc system("live-server")
@@ -288,7 +291,7 @@ noremap <leader>Pl :PluginInstall <CR>
 noremap <leader>Plc :PluginClean <CR>
 " C/C++ keybings
 " noremap <leader>gcc :!gcc % -o 
-noremap <leader>gcc :!gcc % -o %:r <CR>
+" noremap <leader>gcc :!gcc % -o %:r <CR>
 " Python keybings
 nnoremap <leader>p : !python % <CR>
 "Fugitive keybings
@@ -318,6 +321,10 @@ nnoremap <leader>csl :CocList snippets<CR>
 nnoremap <leader>csd :CocCommand snippets.openSnippetFiles<CR>
 " qutebrowser
 noremap <expr> <silent> <leader>qu system("qutebrowser"."&")
+" Maximizer
+nnoremap <leader>w :MaximizerToggle <CR><CR>
+"Vimspector configl
+let g:vimspector_enable_mappings = 'HUMAN'
 " Install missings puglins
 
 autocmd VimEnter *
