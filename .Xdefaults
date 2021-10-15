@@ -44,18 +44,13 @@ URxvt.italicFont: xft:inconsolata:style=Italic:size=13
 URxvt.boldItalicFont: xft:inconsolata:style=Bold Italic:size=13
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
-/* URxvt.geometry: 80x24 */
-/* URxvt.geometry: 20x24 */
-/* URxvt.internalBorder: 24 */
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.letterSpace: 0
-/* URxvt.urgentOnBell: true */
-/* URxvt.depth: 24 */
-/* URxvt.iso14755: false */
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-
+URxvt*transparent: true
+URxvt*shading: 25
