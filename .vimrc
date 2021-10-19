@@ -8,6 +8,7 @@
  " ideal parte 1 do meu vimrc, foram alguns meses de preparacao e pratica,
  " finalmente consegui me integrar com o vim.
  " git clone https://github.com/vim/vim
+ " Teste
 
 "Scripts de instalacao do vim plug
 "windows iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
@@ -63,7 +64,8 @@ let mapleader ="\<Tab>"
 call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'               "vim color highlighing
     Plug 'puremourning/vimspector'          "Vim debugger
-    Plug 'tpope/vim-surround'               "vim Surround text with other text
+    Plug 'tpope/vim-surround'               "vim Surround text with other textj
+    Plug 'junegunn/fzf.vim'                 "Vim fuzzy finder
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview
     Plug 'tpope/vim-fugitive'               "Vim git plugin
     Plug 'kkoomen/vim-doge'                 "Vim Doge
@@ -278,6 +280,7 @@ noremap <leader>vr :reg <CR>
 noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
 noremap <leader>d :diffthis <CR>
+noremap <leader>[ :Files <CR>
 " noremap <expr> <silent> <leader>vl system("live-server")
 " Problems with running live server in a vim session, I will use tmux instead
 " noremap <expr> <silent> <leader>vlc system("live-server")
