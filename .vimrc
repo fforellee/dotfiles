@@ -63,6 +63,7 @@ let mapleader ="\<Tab>"
 
 call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'               "vim color highlighing
+    Plug 'vimwiki/vimwiki'                  "Vim notetaking plugin
     Plug 'puremourning/vimspector'          "Vim debugger
     Plug 'tpope/vim-surround'               "vim Surround text with other textj
     Plug 'junegunn/fzf.vim'                 "Vim fuzzy finder
@@ -280,7 +281,7 @@ noremap <leader>vr :reg <CR>
 noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
 noremap <leader>d :diffthis <CR>
-noremap <leader>[ :Files <CR>
+noremap <C-p>     :Files <CR>
 " noremap <expr> <silent> <leader>vl system("live-server")
 " Problems with running live server in a vim session, I will use tmux instead
 " noremap <expr> <silent> <leader>vlc system("live-server")
@@ -325,7 +326,7 @@ nnoremap <leader>csd :CocCommand snippets.openSnippetFiles<CR>
 " qutebrowser
 noremap <expr> <silent> <leader>qu system("qutebrowser"."&")
 " Maximizer
-nnoremap <leader>w :MaximizerToggle <CR><CR>
+nnoremap <C-m> :MaximizerToggle <CR>
 "Vimspector configl
 let g:vimspector_enable_mappings = 'HUMAN'
 " Install missings puglins
