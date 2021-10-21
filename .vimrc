@@ -19,7 +19,7 @@
 "preferencias 
 
 set wrap
-colorscheme PaperColor
+colorscheme happy_hacking
 set hlsearch
 set encoding=utf-8
 set relativenumber 
@@ -308,9 +308,10 @@ map <leader>\ :! pdflatex %<CR><CR>
 noremap <expr> <silent> <leader>z system("zathura " . substitute(expand("%"), '.tex$', '.pdf', ""). " &")
 noremap <expr> <silent> <leader>lz system("zathura "."&")
 "Nerd tree keybings
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+let NERDTreeQuitOnOpen=1
+" nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " Coc keybindings
 nnoremap <leader>ci :CocInstall 
