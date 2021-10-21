@@ -19,7 +19,7 @@
 "preferencias 
 
 set wrap
-colorscheme fahrenheit
+colorscheme PaperColor
 set hlsearch
 set encoding=utf-8
 set relativenumber 
@@ -282,9 +282,6 @@ noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
 noremap <leader>d :diffthis <CR>
 noremap <C-p>     :Files <CR>
-" noremap <expr> <silent> <leader>vl system("live-server")
-" Problems with running live server in a vim session, I will use tmux instead
-" noremap <expr> <silent> <leader>vlc system("live-server")
 noremap <leader>vv :vert term<CR>
 noremap <leader>vh :term<CR>
 "Plug Keybings
