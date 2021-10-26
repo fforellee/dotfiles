@@ -15,11 +15,10 @@
 "Linux curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimsyntax on
 
 "Scripts vundle
-
 "preferencias 
 
 set wrap
-colorscheme happy_hacking
+colorscheme xoix
 set hlsearch
 set encoding=utf-8
 set relativenumber 

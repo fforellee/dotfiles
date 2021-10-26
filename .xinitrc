@@ -1,3 +1,5 @@
-xwallpaper --zoom ~/wallpapers/lain2.jpg
-exec dwm
-exec /root/dwmbar
+wal -i ~/dotfiles/imgs/lain.jpg
+
+setxkbmap -option caps:super
+
+exec xmonad
