@@ -1,31 +1,15 @@
 " ~J~o~r~m~u~n~g~a~n~d~r~
-
- " Nota sobre o meu atual setup do vim, eu vou descrever alguns dos processos
- " importantes para rodar plugins essenciais pra mim,
- " para fazer algusn dos autocomplete funcionar eu preciso compilar o vim eu mesmo
- " para compilar o vim manualmente e necessario clonar o repositorio
- " No momento so me falta o autocompletar, para assim finalmente tero setup
- " ideal parte 1 do meu vimrc, foram alguns meses de preparacao e pratica,
- " finalmente consegui me integrar com o vim.
- " git clone https://github.com/vim/vim
- " Teste
-
-"Scripts de instalacao do vim plug
-"windows iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
-"Linux curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimsyntax on
-
-"Scripts vundle
-"preferencias 
-
+"leader key
+let mapleader ="\<Tab>"
 set wrap
 colorscheme xoix
 set hlsearch
+set incsearch 
 set encoding=utf-8
 set relativenumber 
-set clipboard+=unnamedplus
 set number 
+set clipboard+=unnamedplus
 set noerrorbells 
-set incsearch 
 set noswapfile
 set rnu
 set nowrap 
@@ -37,19 +21,6 @@ set ft=xxd
 set termguicolors
 highlight ColorColumn ctermbg=magenta 
 call matchadd('ColorColumn','\%81v',100)
-" Tabs with numbers
-
-" noremap <leader>0 :tablast<cr>
-noremap <leader>1 1gt <CR>
-noremap <leader>2 2gt <CR>
-noremap <leader>3 3gt <CR>
-noremap <leader>4 4gt <CR>
-noremap <leader>5 5gt <CR>
-noremap <leader>6 6gt <CR>
-noremap <leader>7 7gt <CR>
-noremap <leader>8 8gt <CR>
-noremap <leader>9 9gt <CR>
-
 " Default preferences 
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -57,13 +28,12 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 inoremap , ,<C-g>u
 
-"leader key
-let mapleader ="\<Tab>"
-
 call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'               "vim color highlighing
     Plug 'vimwiki/vimwiki'                  "Vim notetaking plugin
-    Plug 'puremourning/vimspector'          "Vim debugger
+    " Plug 'puremourning/vimspector'          "Vim debugger
+    Plug 'vim-airline/vim-airline'          "Vim status bar
+    Plug 'vim-airline/vim-airline-themes'   "Vim status bar themes
     Plug 'tpope/vim-surround'               "vim Surround text with other textj
     Plug 'junegunn/fzf.vim'                 "Vim fuzzy finder
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview
@@ -79,28 +49,11 @@ call plug#begin('~/.vim/plugged')
     " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
 call plug#end()
-
 call vundle#begin()
     Plugin 'iamcco/markdown-preview.vim'
     Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
-
-"Plugin Config
-"
-"
-"Coc config
-"
-"
-" let g:coc_global_extension2s = [ */
-"     'coc-php', */
-"     'coc-java' */
-"     ] */
-"
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-"
 " TextEdit might fail if hidden is not set.
 set hidden
 "
@@ -265,8 +218,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "
 " End of Coc plugin config
 "
-" Keybings
-"
 "Vim keybings
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
@@ -297,7 +248,7 @@ nnoremap <leader>p : !python % <CR>
 "Fugitive keybings
 nnoremap <leader>gc : Git commit -m "
 nnoremap <leader>ga : Git add .
-nnoremap <leader>gs : Git status     <CR>
+nnoremap <leader>gs : Git status     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<CR>
 nnoremap <leader>gra : Git remote add 
 nnoremap <leader>gb : Git branch <CR>
 " nnoremap <leader>gc : Git checkout 
@@ -320,8 +271,6 @@ nnoremap <leader>cl :CocList <CR>
 nnoremap <leader>cse :CocCommand snippets.editSnippets<CR>
 nnoremap <leader>csl :CocList snippets<CR>
 nnoremap <leader>csd :CocCommand snippets.openSnippetFiles<CR>
-" qutebrowser
-noremap <expr> <silent> <leader>qu system("qutebrowser"."&")
 " Maximizer
 nnoremap <C-m> :MaximizerToggle <CR>
 "Vimspector configl
