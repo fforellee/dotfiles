@@ -1,0 +1,1 @@
+/home/fforelle/dotfiles/init.vim
