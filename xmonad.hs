@@ -1,21 +1,9 @@
 import XMonad
 
-myKeys conf@(XConfig {modMask = modKey}) = 
-     [ ((modKey, xK_q), spawn "qutebrowser")
-     , ((modKey, xK_z), spawn "zathura")
-     , ((modKey, xK_t), spawn "terminal")
-     ]
-
-def = XConfig
-    {
-    ,modMask = mod4Mask
-    ,keys = myKeys
-    }
-    main = xmonad $ defaultConfig
-    { terminal = "urxvt"
-    ,modMask   = mod4Mask
+main = xmonad defaultConfig
+    { modMask   = mod4Mask
+    ,terminal = "alacritty"
     ,borderWidth = 0
-    ,keys = myKeys
     }
 
 
