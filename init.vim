@@ -32,8 +32,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'               "vim color highlighing
     Plug 'vimwiki/vimwiki'                  "Vim notetaking plugin
     " Plug 'puremourning/vimspector'          "Vim debugger
-    Plug 'vim-airline/vim-airline'          "Vim status bar
-    Plug 'vim-airline/vim-airline-themes'   "Vim status bar themes
     Plug 'tpope/vim-surround'               "vim Surround text with other textj
     Plug 'junegunn/fzf.vim'                 "Vim fuzzy finder
     Plug 'iamcco/markdown-preview.vim'      "Mardown preview

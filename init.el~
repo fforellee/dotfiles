@@ -1,0 +1,16 @@
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
+
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+; (set-frame-parameter frame 'font "Inconsolata-24")
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org"."https://orgmode.org/elpa/")
+                         ("elpa"."https://melpa.org/packages/")))
+
+(set-frame-font "inconsolata")
