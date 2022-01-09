@@ -1,0 +1,7 @@
+host: all
+tags: always
+become:true
+pre_tasks:
+	name:install-packages
+	tags:always
+	pacman:
