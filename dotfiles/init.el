@@ -29,3 +29,16 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+  (straight-use-package 'use-package)
+
+(straight-use-package 'evil)
+(straight-use-package 'org-mode)
+(straight-use-package 'doom-themes)
+(straight-use-package 'doom-modeline)
+(straight-use-package 'vertico)
+
+(straight-use-package 'all-the-icons)
+
+(doom-modeline 1)
+(evil-mode 1)
+
