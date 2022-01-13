@@ -3,10 +3,13 @@
   tasks:
   - name: create directory tree
     file:
-        path: ~/teste
+        path: ~/{teste,testee,testee}
         state: directory
 
-  - name: create directory tree
-    file:
-        path: ~/teste
-        state: directory
+  - name: install packages
+    pacman:
+      name:
+        - vim
+      state: present
+
+      
