@@ -7,9 +7,9 @@
         state: directory
 
   - name: install packages
-    pacman:
+    when: ansible_facts['distribution'] == "Archlinux"
+    community.general.pacman:
       name:
-        - vim
+        -alacritty
       state: present
-
       
