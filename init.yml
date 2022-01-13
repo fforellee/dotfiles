@@ -1,0 +1,12 @@
+- name: setup system
+  hosts: localhost
+  tasks:
+  - name: create directory tree
+    file:
+        path: ~/teste
+        state: directory
+
+  - name: create directory tree
+    file:
+        path: ~/teste
+        state: directory
