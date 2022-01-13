@@ -42,7 +42,8 @@
 ** Evil mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'evil)
-  (straight-use-package 'evil-org)
+  (straight-use-package 'evil-org-mode)
+
   (evil-mode 1)
 #+END_SRC
 ** Org Mode 
@@ -60,6 +61,11 @@
   (straight-use-package 'treemacs-evil)
   (straight-use-package 'treemacs-all-the-icons)
   (global-set-key [f8] 'treemacs)
+#+END_SRC
+** Which key
+#+BEGIN_SRC emacs-lisp
+    (straight-use-package 'which-key
+    (which-key-mode 1))
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
