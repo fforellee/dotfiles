@@ -13,7 +13,7 @@
   (straight-use-package 'use-package)
 
 (straight-use-package 'doom-themes)
-(load-theme 'doom-gruvbox t)
+(load-theme 'doom-tokyo-night t)
 
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
@@ -30,11 +30,12 @@
 (toggle-scroll-bar -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(display-line-numbers-mode)
+(display-line-numbers-mode 1)
 (setq display-line-numbers 'relative)
 
 (straight-use-package 'evil)
 (straight-use-package 'evil-org)
+(straight-use-package 'evil-org-mode)
 (evil-mode 1)
 
 (straight-use-package 'org-mode)
@@ -44,14 +45,22 @@
 
 (straight-use-package 'treemacs)
 (straight-use-package 'treemacs-evil)
+(straight-use-package 'treemacs-magit)
 (straight-use-package 'treemacs-all-the-icons)
 (global-set-key [f8] 'treemacs)
+(use-package treemacs-all-the-icons
+   :after treemacs)
 
 (straight-use-package 'magit)
 
 (straight-use-package 'ansible)
 (straight-use-package 'yaml-mode)
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+
+(straight-use-package 'helpful)
+(global-set-key (kbd "C-h f") #'helpful-callable)
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")

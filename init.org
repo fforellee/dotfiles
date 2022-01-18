@@ -17,7 +17,7 @@
 * Ui  
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'doom-themes)
-  (load-theme 'doom-gruvbox t)
+  (load-theme 'doom-tokyo-night t)
 
   (straight-use-package 'doom-modeline)
   (doom-modeline-mode 1)
@@ -34,16 +34,34 @@
   (toggle-scroll-bar -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (display-line-numbers-mode)
+  (display-line-numbers-mode 1)
   (setq display-line-numbers 'relative)
 
 #+END_SRC
 * Packages
+**  Company mode 
+#+BEGIN_SRC emacs-lisp
+   (straight-use-package 'company-mode)
+#+END_SRC
+** Lsp mode
+#+BEGIN_SRC emacs-lisp
+  (straight-use-package 'lsp-mode)
+#+END_SRC
+*** Type-script setup
+#+BEGIN_SRC emacs-lisp
+   (use-package typescript-mode
+   :mode "\\.ts\\'"
+   :hook(typescript-mode . lsp-deferred)
+   :config
+   (setq typescript-indent-level 2))
+#+END_SRC
 ** Evil mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'evil)
   (straight-use-package 'evil-org)
+  (straight-use-package 'evil-org-mode)
   (evil-mode 1)
+  (evil-org-mode 1)
 #+END_SRC
 ** Org Mode 
 #+BEGIN_SRC emacs-lisp
@@ -58,8 +76,11 @@
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'treemacs)
   (straight-use-package 'treemacs-evil)
+  (straight-use-package 'treemacs-magit)
   (straight-use-package 'treemacs-all-the-icons)
   (global-set-key [f8] 'treemacs)
+  (use-package treemacs-all-the-icons
+     :after treemacs)
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -70,6 +91,14 @@
   (straight-use-package 'ansible)
   (straight-use-package 'yaml-mode)
   (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+#+END_SRC
+
+** Helpful mode
+#+BEGIN_SRC emacs-lisp
+  (straight-use-package 'helpful)
+  (global-set-key (kbd "C-h f") #'helpful-callable)
+  (global-set-key (kbd "C-h v") #'helpful-variable)
+  (global-set-key (kbd "C-h k") #'helpful-key)
 #+END_SRC
 * Melpa
 #+BEGIN_SRC emacs-lisp
