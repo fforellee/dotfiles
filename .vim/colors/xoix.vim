@@ -1,1 +1,0 @@
-/home/fforelle/dotfiles/xoix.vim

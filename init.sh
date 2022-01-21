@@ -30,4 +30,4 @@ update_packages(){
     pacman -Qqen >> ~/dotfiles/packages
     }
 
-update_packages
+create_dir_tree

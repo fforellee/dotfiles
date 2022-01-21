@@ -35,8 +35,8 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (display-line-numbers-mode 1)
-  (setq display-line-numbers 'relative)
 
+  (setq display-line-numbers 'relative)
 #+END_SRC
 * Packages
 ** Lsp mode
@@ -51,6 +51,17 @@
    :config
    (setq typescript-indent-level 2))
 #+END_SRC   
+*** Haskell setup/Nix Haskell
+#+BEGIN_SRC emacs-lisp
+  (straight-use-package 'haskell-mode)
+#+END_SRC   
+*** Anisible/Yml setup
+ #+BEGIN_SRC emacs-lisp
+   (straight-use-package 'ansible)
+   (straight-use-package 'yaml-mode)
+   (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+ #+END_SRC
+
 ** Company mode 
 #+BEGIN_SRC emacs-lisp
    (straight-use-package 'company-mode)
@@ -58,7 +69,6 @@
 ** Evil mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'evil)
-  (straight-use-package 'evil-org)
   (straight-use-package 'evil-org-mode)
   (evil-mode 1)
   (evil-org-mode 1)
@@ -86,13 +96,6 @@
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'magit)
 #+END_SRC
-** Anisible/Yml mode
-#+BEGIN_SRC emacs-lisp
-  (straight-use-package 'ansible)
-  (straight-use-package 'yaml-mode)
-  (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
-#+END_SRC
-
 ** Helpful mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'helpful)
