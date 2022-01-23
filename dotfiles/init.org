@@ -36,6 +36,7 @@
   (tool-bar-mode -1)
 
   (setq display-line-numbers-type 'relative)
+  (solaire-global-mode +1)
 #+END_SRC
 * Packages
 ** Lsp mode
@@ -61,6 +62,11 @@
    (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
  #+END_SRC
 
+*** Nix setup
+ #+BEGIN_SRC emacs-lisp
+   (straight-use-package 'nix-mode)
+ #+END_SRC
+
 ** Company mode 
 #+BEGIN_SRC emacs-lisp
    (straight-use-package 'company-mode)
@@ -75,7 +81,7 @@
 ** Org Mode 
 #+BEGIN_SRC emacs-lisp
   ;(straight-use-package 'org-mode)
-   (add-hook 'org-mode 'display-line-numbers-mode)
+   (add-hook 'org-mode 'display-line-numbers-mode 1)
 #+END_SRC
 ** Vertico mode
 #+BEGIN_SRC emacs-lisp
@@ -91,6 +97,8 @@
   (global-set-key [f8] 'treemacs)
   (use-package treemacs-all-the-icons
      :after treemacs)
+  (treemacs-load-theme 'all-the-icons)
+  (treemacs-set-width  '25)
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -108,6 +116,11 @@
   (straight-use-package 'which-key)
   (which-key-mode 1)
 #+END_SRC
+** Solaire-mode
+    #+begin_src emacs-lisp
+    (straight-use-package 'solaire-mode)
+    #+end_src
+
 * Melpa
 #+BEGIN_SRC emacs-lisp
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")

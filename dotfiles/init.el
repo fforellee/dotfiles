@@ -30,9 +30,9 @@
 (toggle-scroll-bar -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(display-line-numbers-mode 1)
 
-(setq display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
+(solaire-global-mode +1)
 
 (straight-use-package 'lsp-mode)
 
@@ -48,6 +48,8 @@
 (straight-use-package 'yaml-mode)
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 
+(straight-use-package 'nix-mode)
+
 (straight-use-package 'company-mode)
 
 (straight-use-package 'evil)
@@ -55,7 +57,8 @@
 (evil-mode 1)
 (evil-org-mode 1)
 
-(straight-use-package 'org-mode)
+;(straight-use-package 'org-mode)
+ (add-hook 'org-mode 'display-line-numbers-mode 1)
 
 (straight-use-package 'vertico)
 (vertico-mode 1)
@@ -67,6 +70,8 @@
 (global-set-key [f8] 'treemacs)
 (use-package treemacs-all-the-icons
    :after treemacs)
+(treemacs-load-theme 'all-the-icons)
+(treemacs-set-width  '25)
 
 (straight-use-package 'magit)
 
@@ -74,6 +79,11 @@
 (global-set-key (kbd "C-h f") #'helpful-callable)
 (global-set-key (kbd "C-h v") #'helpful-variable)
 (global-set-key (kbd "C-h k") #'helpful-key)
+
+(straight-use-package 'which-key)
+(which-key-mode 1)
+
+(straight-use-package 'solaire-mode)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
