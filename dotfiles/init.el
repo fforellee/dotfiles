@@ -1,4 +1,5 @@
 (straight-use-package 'lsp-mode)
+(straight-use-package 'dap-mode)
 
 ;(use-package typescript-mode
 ;:mode "\\.ts\\'"
@@ -13,6 +14,11 @@
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 
 (straight-use-package 'nix-mode)
+
+(with-eval-after-load 'lsp-mode
+(require 'dap-chrome)
+(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+(yas-global-mode))
 
 (straight-use-package 'company-mode)
 
