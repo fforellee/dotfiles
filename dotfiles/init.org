@@ -45,11 +45,11 @@
 #+END_SRC
 *** Type-script setup
 #+BEGIN_SRC emacs-lisp
-   (use-package typescript-mode
-   :mode "\\.ts\\'"
-   :hook(typescript-mode . lsp-deferred)
-   :config
-   (setq typescript-indent-level 2))
+   ;(use-package typescript-mode
+   ;:mode "\\.ts\\'"
+   ;:hook(typescript-mode . lsp-deferred)
+   ;:config
+   ;(setq typescript-indent-level 2))
 #+END_SRC   
 *** Haskell setup/Nix Haskell
 #+BEGIN_SRC emacs-lisp
@@ -75,6 +75,7 @@
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'evil)
   (straight-use-package 'evil-org-mode)
+  (setq evil-want-C-u-scroll t)
   (evil-mode 1)
   (evil-org-mode 1)
 #+END_SRC
@@ -90,15 +91,18 @@
 #+END_SRC
 ** Treemacs
 #+BEGIN_SRC emacs-lisp
-  (straight-use-package 'treemacs)
+  (straight-use-package 'treemacs
+  (treemacs-load-theme 'all-the-icons)
+  (treemacs-set-width  '25))
+
   (straight-use-package 'treemacs-evil)
   (straight-use-package 'treemacs-magit)
   (straight-use-package 'treemacs-all-the-icons)
   (global-set-key [f8] 'treemacs)
   (use-package treemacs-all-the-icons
      :after treemacs)
-  (treemacs-load-theme 'all-the-icons)
-  (treemacs-set-width  '25)
+  ;(treemacs-load-theme 'all-the-icons)
+  ;(treemacs-set-width  '25)
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
