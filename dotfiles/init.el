@@ -1,3 +1,4 @@
+;Define straight.el 
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -13,14 +14,15 @@
 
   (straight-use-package 'use-package)
 
+;Install doom themes
 (straight-use-package 'doom-themes)
 ;(load-theme 'doom-gruvbox t)
 (load-theme 'doom-tokyo-night t)
-
+;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 
-
+;Install icons packages
 (straight-use-package 'all-the-icons)
 (setq doom-modeline-major-mode-icon t)
 
@@ -36,6 +38,19 @@
 (setq display-line-numbers-type 'relative)
 ;My font -SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
+(defun toggle-transparency ()
+(interactive)
+(let ((alpha (frame-parameter nil 'alpha)))
+  (set-frame-parameter
+   nil 'alpha
+   (if (eql (cond ((numberp alpha) alpha)
+                  ((numberp (cdr alpha)) (cdr alpha))
+                  ;; Also handle undocumented (<active> <inactive>) form.
+                  ((numberp (cadr alpha)) (cadr alpha)))
+            100)
+       '(85 . 50) '(100 . 100)))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+
 (use-package lsp-mode
 :init
 (setq lsp-keymap-prefix "C-c l")
@@ -50,7 +65,7 @@
 
 ;(straight-use-package 'dap-mode)
 
-(setq dap-auto-configure-features '(sessions locals controls tooltip))
+;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 
 
@@ -69,8 +84,7 @@
 (evil-mode 1)
 (evil-org-mode 1)
 
-;(straight-use-package 'org-mode)
- (add-hook 'org-mode 'display-line-numbers-mode 1)
+
 
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (use-package org-superstar
@@ -99,17 +113,18 @@
 (straight-use-package 'vertico)
 (vertico-mode 1)
 
-(straight-use-package 'treemacs
-(treemacs-load-theme 'all-the-icons)
-(treemacs-set-width  '25)
-(setq treemacs-user-mode-line-format 'nil))
+(straight-use-package 'treemacs)       ;install treemacs
+(straight-use-package 'treemacs-evil)  ;treemacs evil mode
+(straight-use-package 'treemacs-magit) ;treemacs magit support
+;treemacs icons and UI
+(straight-use-package 'treemacs-all-the-icons
 
-(straight-use-package 'treemacs-evil)
-(straight-use-package 'treemacs-magit)
-(straight-use-package 'treemacs-all-the-icons)
+(setq treemacs-width '25))
+
+;(treemacs-load-theme 'all-the-icons)
+;(setq treemacs-user-mode-line-format "none")
+
 (global-set-key [f8] 'treemacs)
-(use-package treemacs-all-the-icons
-   :after treemacs)
 
 (straight-use-package 'magit)
 
@@ -126,7 +141,7 @@
 
 (straight-use-package 'writeroom-mode)
 
-(straight-use-pacakge 'yasnippets)
+(straight-use-package 'yasnippets)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")

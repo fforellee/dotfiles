@@ -1,5 +1,6 @@
 * Straight.el 
 #+BEGIN_SRC emacs-lisp
+  ;Define straight.el 
   (defvar bootstrap-version)
   (let ((bootstrap-file
 	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -14,17 +15,18 @@
     (load bootstrap-file nil 'nomessage))
 
     (straight-use-package 'use-package)
-#+END_SRC
+    #+END_SRC
 * Ui  
 #+BEGIN_SRC emacs-lisp
+  ;Install doom themes
   (straight-use-package 'doom-themes)
   ;(load-theme 'doom-gruvbox t)
   (load-theme 'doom-tokyo-night t)
-
+  ;Install doom modeline
   (straight-use-package 'doom-modeline)
   (doom-modeline-mode 1)
 
-
+  ;Install icons packages
   (straight-use-package 'all-the-icons)
   (setq doom-modeline-major-mode-icon t)
 
@@ -40,6 +42,21 @@
   (setq display-line-numbers-type 'relative)
   ;My font -SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 #+END_SRC
+** Emacs transparency
+   #+begin_src emacs-lisp
+   (defun toggle-transparency ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(85 . 50) '(100 . 100)))))
+   (global-set-key (kbd "C-c t") 'toggle-transparency)
+   #+end_src
 * Packages
 ** Dap/Lsp mode
 #+BEGIN_SRC emacs-lisp
@@ -57,7 +74,7 @@
 
   ;(straight-use-package 'dap-mode)
 
-  (setq dap-auto-configure-features '(sessions locals controls tooltip))
+  ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 #+END_SRC
 *** Type-script setup
@@ -88,8 +105,6 @@
 #+END_SRC
 ** Org Mode 
 #+BEGIN_SRC emacs-lisp
-  ;(straight-use-package 'org-mode)
-   (add-hook 'org-mode 'display-line-numbers-mode 1)
 #+END_SRC
 *** org mode style
     #+begin_src emacs-lisp 
@@ -124,19 +139,19 @@
 #+END_SRC
 ** Treemacs
 #+BEGIN_SRC emacs-lisp
-    (straight-use-package 'treemacs
-    (treemacs-load-theme 'all-the-icons)
-    (treemacs-set-width  '25)
-    (setq treemacs-user-mode-line-format 'nil))
-
-    (straight-use-package 'treemacs-evil)
-    (straight-use-package 'treemacs-magit)
-    (straight-use-package 'treemacs-all-the-icons)
-    (global-set-key [f8] 'treemacs)
-    (use-package treemacs-all-the-icons
-       :after treemacs)
-  
+    (straight-use-package 'treemacs)       ;install treemacs
+    (straight-use-package 'treemacs-evil)  ;treemacs evil mode
+    (straight-use-package 'treemacs-magit) ;treemacs magit support
+    ;treemacs icons and UI
+    (straight-use-package 'treemacs-all-the-icons
     
+    (setq treemacs-width '25))
+
+    ;(treemacs-load-theme 'all-the-icons)
+    ;(setq treemacs-user-mode-line-format "none")
+
+    (global-set-key [f8] 'treemacs)
+
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -165,12 +180,12 @@
     #+end_src
 ** Yasnippets
     #+begin_src emacs-lisp
-    (straight-use-pacakge 'yasnippets)
+    (straight-use-package 'yasnippets)
     #+end_src
 
 * Melpa
-#+BEGIN_SRC emacs-lisp
+  #+begin_src emacs-lisp
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			   ("org"."https://orgmode.org/elpa/")
 			   ("elpa"."https://melpa.org/packages/")))
-#+END_SRC
+  #+end_src
