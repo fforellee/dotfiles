@@ -4,15 +4,17 @@
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
+	(url-retrieve-synchronously
+	 "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+	 'silent 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
   (straight-use-package 'use-package)
 
 (straight-use-package 'doom-themes)
+;(load-theme 'doom-gruvbox t)
 (load-theme 'doom-tokyo-night t)
 
 (straight-use-package 'doom-modeline)
@@ -32,30 +34,32 @@
 (tool-bar-mode -1)
 
 (setq display-line-numbers-type 'relative)
-(solaire-global-mode +1)
-;-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
+;My font -SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-(straight-use-package 'lsp-mode)
-(straight-use-package 'dap-mode)
+(use-package lsp-mode
+:init
+(setq lsp-keymap-prefix "C-c l")
+:hook (
+	(typescript-mode . lsp)
+	;; if you want which-key integration
+	(lsp-mode . lsp-enable-which-key-integration))
+:commands lsp)
+
+;Lsp ui tweaks
+(setq lsp-headerline-breadcrumb-enable nil)
+
+;(straight-use-package 'dap-mode)
+
 (setq dap-auto-configure-features '(sessions locals controls tooltip))
 
-(use-package typescript-mode
-:mode "\\.ts\\'"
-:hook(typescript-mode . lsp-deferred))
-(add-hook 'typescript-mode #'lsp)
-;dap mode configuration setup
+
 
 (straight-use-package 'haskell-mode)
+(add-hook 'haskell-mode-hook #'lsp)
 
 (straight-use-package 'ansible)
 (straight-use-package 'yaml-mode)
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
-
-(straight-use-package 'nix-mode)
-
-;(with-eval-after-load 'lsp-mode
-;(require 'dap-chrome)
-;(add-hook 'lsp-mode-hook ))
 
 (straight-use-package 'company-mode)
 
@@ -97,7 +101,8 @@
 
 (straight-use-package 'treemacs
 (treemacs-load-theme 'all-the-icons)
-(treemacs-set-width  '25))
+(treemacs-set-width  '25)
+(setq treemacs-user-mode-line-format 'nil))
 
 (straight-use-package 'treemacs-evil)
 (straight-use-package 'treemacs-magit)
@@ -105,8 +110,6 @@
 (global-set-key [f8] 'treemacs)
 (use-package treemacs-all-the-icons
    :after treemacs)
-;(treemacs-load-theme 'all-the-icons)
-;(treemacs-set-width  '25)
 
 (straight-use-package 'magit)
 
@@ -119,8 +122,11 @@
 (which-key-mode 1)
 
 (straight-use-package 'solaire-mode)
+(solaire-global-mode +1)
 
 (straight-use-package 'writeroom-mode)
+
+(straight-use-pacakge 'yasnippets)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")

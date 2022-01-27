@@ -1,22 +1,24 @@
 * Straight.el 
 #+BEGIN_SRC emacs-lisp
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-  (straight-use-package 'use-package)
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+	(bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+	  (url-retrieve-synchronously
+	   "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+	   'silent 'inhibit-cookies)
+	(goto-char (point-max))
+	(eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+    (straight-use-package 'use-package)
 #+END_SRC
 * Ui  
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'doom-themes)
+  ;(load-theme 'doom-gruvbox t)
   (load-theme 'doom-tokyo-night t)
 
   (straight-use-package 'doom-modeline)
@@ -36,26 +38,35 @@
   (tool-bar-mode -1)
 
   (setq display-line-numbers-type 'relative)
-  (solaire-global-mode +1)
-  ;-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
+  ;My font -SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 #+END_SRC
 * Packages
 ** Dap/Lsp mode
 #+BEGIN_SRC emacs-lisp
-  (straight-use-package 'lsp-mode)
-  (straight-use-package 'dap-mode)
+  (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+	  (typescript-mode . lsp)
+	  ;; if you want which-key integration
+	  (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+  ;Lsp ui tweaks
+  (setq lsp-headerline-breadcrumb-enable nil)
+
+  ;(straight-use-package 'dap-mode)
+
   (setq dap-auto-configure-features '(sessions locals controls tooltip))
+
 #+END_SRC
 *** Type-script setup
 #+BEGIN_SRC emacs-lisp
-  (use-package typescript-mode
-  :mode "\\.ts\\'"
-  :hook(typescript-mode . lsp-deferred))
-  (add-hook 'typescript-mode #'lsp)
 #+END_SRC   
 *** Haskell setup/Nix Haskell
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'haskell-mode)
+  (add-hook 'haskell-mode-hook #'lsp)
 #+END_SRC   
 *** Anisible/Yml setup
  #+BEGIN_SRC emacs-lisp
@@ -63,9 +74,6 @@
    (straight-use-package 'yaml-mode)
    (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
  #+END_SRC
-*** React mode 
-    #+begin_src emacs-lisp
-    #+end_src
 ** Company mode 
 #+BEGIN_SRC emacs-lisp
    (straight-use-package 'company-mode)
@@ -116,18 +124,19 @@
 #+END_SRC
 ** Treemacs
 #+BEGIN_SRC emacs-lisp
-  (straight-use-package 'treemacs
-  (treemacs-load-theme 'all-the-icons)
-  (treemacs-set-width  '25))
+    (straight-use-package 'treemacs
+    (treemacs-load-theme 'all-the-icons)
+    (treemacs-set-width  '25)
+    (setq treemacs-user-mode-line-format 'nil))
 
-  (straight-use-package 'treemacs-evil)
-  (straight-use-package 'treemacs-magit)
-  (straight-use-package 'treemacs-all-the-icons)
-  (global-set-key [f8] 'treemacs)
-  (use-package treemacs-all-the-icons
-     :after treemacs)
-  ;(treemacs-load-theme 'all-the-icons)
-  ;(treemacs-set-width  '25)
+    (straight-use-package 'treemacs-evil)
+    (straight-use-package 'treemacs-magit)
+    (straight-use-package 'treemacs-all-the-icons)
+    (global-set-key [f8] 'treemacs)
+    (use-package treemacs-all-the-icons
+       :after treemacs)
+  
+    
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -148,10 +157,15 @@
 ** Solaire-mode
     #+begin_src emacs-lisp
     (straight-use-package 'solaire-mode)
+    (solaire-global-mode +1)
     #+end_src
 ** Write room mode
     #+begin_src emacs-lisp
     (straight-use-package 'writeroom-mode)
+    #+end_src
+** Yasnippets
+    #+begin_src emacs-lisp
+    (straight-use-pacakge 'yasnippets)
     #+end_src
 
 * Melpa
