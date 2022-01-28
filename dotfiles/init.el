@@ -14,51 +14,28 @@
 
   (straight-use-package 'use-package)
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
 ;Install doom themes
 (straight-use-package 'doom-themes)
-;(load-theme 'doom-gruvbox t)
-(load-theme 'doom-tokyo-night t)
+(load-theme 'doom-1337 t)
 ;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
-
 ;Install icons packages
 (straight-use-package 'all-the-icons)
 (setq doom-modeline-major-mode-icon t)
-
 (use-package all-the-icons
 :if (display-graphic-p))
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
+;Remove emacs bars
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (scroll-bar-mode -1)
-(tool-bar-mode -1)
-
+;Chose font
+(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
-;My font -SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-(defun toggle-transparency ()
-(interactive)
-(let ((alpha (frame-parameter nil 'alpha)))
-  (set-frame-parameter
-   nil 'alpha
-   (if (eql (cond ((numberp alpha) alpha)
-                  ((numberp (cdr alpha)) (cdr alpha))
-                  ;; Also handle undocumented (<active> <inactive>) form.
-                  ((numberp (cadr alpha)) (cadr alpha)))
-            100)
-       '(85 . 50) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
-
-(use-package lsp-mode
-:init
-(setq lsp-keymap-prefix "C-c l")
-:hook (
-	(typescript-mode . lsp)
-	;; if you want which-key integration
-	(lsp-mode . lsp-enable-which-key-integration))
-:commands lsp)
+(straight-use-package 'lsp-mode)
 
 ;Lsp ui tweaks
 (setq lsp-headerline-breadcrumb-enable nil)
@@ -119,10 +96,11 @@
 ;treemacs icons and UI
 (straight-use-package 'treemacs-all-the-icons
 
-(setq treemacs-width '25))
+(setq treemacs-width '25)
+(setq treemacs-user-mode-line-format "none"))
 
-;(treemacs-load-theme 'all-the-icons)
-;(setq treemacs-user-mode-line-format "none")
+;(treemacs-load-theme "all-the-icons")
+(setq treemacs-user-mode-line-format "none")
 
 (global-set-key [f8] 'treemacs)
 
@@ -142,6 +120,10 @@
 (straight-use-package 'writeroom-mode)
 
 (straight-use-package 'yasnippets)
+
+(straight-use-package 'rainbow-delimiters)
+
+(straight-use-package 'rainbow-mode)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
