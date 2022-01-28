@@ -1,7 +1,7 @@
 #+TITLE: My config file
 
 This is my config file for emacs, here I define many packages that use
-using a declarative system with the aid of straight.el
+using a declarative system with the aid of straight.el.
 
 * Straight.el 
 #+BEGIN_SRC emacs-lisp
@@ -36,8 +36,9 @@ using a declarative system with the aid of straight.el
   (use-package all-the-icons
   :if (display-graphic-p))
   ;Remove emacs bars
-  (menu-bar-mode -1)
+  (menu-bar-mode '-1)
   (toggle-scroll-bar -1)
+  (tool-bar-mode -1)
   (scroll-bar-mode -1)
   ;Chose font
   (set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
@@ -82,6 +83,7 @@ using a declarative system with the aid of straight.el
 #+END_SRC
 ** Org Mode 
 #+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook 'evil-org-mode 1)
 #+END_SRC
 *** org mode style
     #+begin_src emacs-lisp 

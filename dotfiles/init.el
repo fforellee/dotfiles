@@ -1,40 +1,3 @@
-;Define straight.el 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-	(url-retrieve-synchronously
-	 "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-	 'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-  (straight-use-package 'use-package)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
-;Install doom themes
-(straight-use-package 'doom-themes)
-(load-theme 'doom-1337 t)
-;Install doom modeline
-(straight-use-package 'doom-modeline)
-(doom-modeline-mode 1)
-;Install icons packages
-(straight-use-package 'all-the-icons)
-(setq doom-modeline-major-mode-icon t)
-(use-package all-the-icons
-:if (display-graphic-p))
-;Remove emacs bars
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(scroll-bar-mode -1)
-;Chose font
-(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-;Set line numbers as relative
-(setq display-line-numbers-type 'relative)
-
 (straight-use-package 'lsp-mode)
 
 ;Lsp ui tweaks
@@ -43,8 +6,6 @@
 ;(straight-use-package 'dap-mode)
 
 ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
-
-
 
 (straight-use-package 'haskell-mode)
 (add-hook 'haskell-mode-hook #'lsp)
@@ -61,7 +22,7 @@
 (evil-mode 1)
 (evil-org-mode 1)
 
-
+(add-hook 'org-mode-hook 'evil-org-mode 1)
 
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (use-package org-superstar
@@ -124,7 +85,3 @@
 (straight-use-package 'rainbow-delimiters)
 
 (straight-use-package 'rainbow-mode)
-
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org"."https://orgmode.org/elpa/")
-			 ("elpa"."https://melpa.org/packages/")))
