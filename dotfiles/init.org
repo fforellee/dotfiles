@@ -20,7 +20,8 @@ using a declarative system with the aid of straight.el.
     (load bootstrap-file nil 'nomessage))
 
     (straight-use-package 'use-package)
-    #+END_SRC
+#+END_SRC
+
 * Ui  
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
@@ -49,17 +50,14 @@ using a declarative system with the aid of straight.el.
 ** Dap/Lsp mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'lsp-mode)
-
   ;Lsp ui tweaks
   (setq lsp-headerline-breadcrumb-enable nil)
-
   ;(straight-use-package 'dap-mode)
-
   ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
-
 #+END_SRC
 *** Haskell setup/Nix Haskell
 #+BEGIN_SRC emacs-lisp
+  (straight-use-package 'nix-mode)
   (straight-use-package 'haskell-mode)
   (add-hook 'haskell-mode-hook #'lsp)
 #+END_SRC   
@@ -111,6 +109,10 @@ using a declarative system with the aid of straight.el.
       (org-superstar-leading-bullet "")
       )
     #+end_src
+** Org Roam 
+   #+begin_src emacs-lisp
+   (straight-use-package 'org-roam)
+   #+end_src
 ** vertico mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'vertico)
@@ -118,19 +120,16 @@ using a declarative system with the aid of straight.el.
 #+END_SRC
 ** Treemacs
 #+BEGIN_SRC emacs-lisp
-    (straight-use-package 'treemacs)       ;install treemacs
-    (straight-use-package 'treemacs-evil)  ;treemacs evil mode
-    (straight-use-package 'treemacs-magit) ;treemacs magit support
-    ;treemacs icons and UI
-    (straight-use-package 'treemacs-all-the-icons
-    
-    (setq treemacs-width '25)
-    (setq treemacs-user-mode-line-format "none"))
+  (straight-use-package 'treemacs)       ;install treemacs
+  (straight-use-package 'treemacs-evil)  ;treemacs evil mode
+  (straight-use-package 'treemacs-magit) ;treemacs magit support
+  ;treemacs icons and UI
+  (straight-use-package 'treemacs-all-the-icons
+  (setq treemacs-width '25)
+  (setq treemacs-user-mode-line-format 'none)
+  ;(setq doom-themes-treemacs-theme "doom-colors"))
 
-    ;(treemacs-load-theme "all-the-icons")
-    (setq treemacs-user-mode-line-format "none")
-
-    (global-set-key [f8] 'treemacs)
+  (global-set-key [f8] 'treemacs)
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -169,6 +168,11 @@ using a declarative system with the aid of straight.el.
    #+begin_src emacs-lisp
    (straight-use-package 'rainbow-mode)
    #+end_src
+** Pdf-tools
+   #+begin_src emacs-lisp
+   (straight-use-package 'pdf-tools)
+   #+end_src
+
 * Melpa
   #+begin_src emacs-lisp
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
