@@ -31,8 +31,10 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(fringe-mode -1)
+(setq tab-bar-mode -1)
 ;Chose font
-(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 ;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
 
@@ -44,7 +46,10 @@
 
 (straight-use-package 'nix-mode)
 (straight-use-package 'haskell-mode)
+(straight-use-package 'lsp-haskell)
+
 (add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
 
 (straight-use-package 'ansible)
 (straight-use-package 'yaml-mode)
@@ -84,8 +89,6 @@
 (org-superstar-leading-bullet "")
 )
 
-(straight-use-package 'org-roam)
-
 (straight-use-package 'vertico)
 (vertico-mode 1)
 
@@ -93,10 +96,9 @@
 (straight-use-package 'treemacs-evil)  ;treemacs evil mode
 (straight-use-package 'treemacs-magit) ;treemacs magit support
 ;treemacs icons and UI
-(straight-use-package 'treemacs-all-the-icons
+(straight-use-package 'treemacs-all-the-icons)
 (setq treemacs-width '25)
 (setq treemacs-user-mode-line-format 'none)
-;(setq doom-themes-treemacs-theme "doom-colors"))
 
 (global-set-key [f8] 'treemacs)
 
@@ -115,7 +117,17 @@
 
 (straight-use-package 'writeroom-mode)
 
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 (straight-use-package 'yasnippets)
+(straight-use-package 'yasnippet-snippets)
+(setq yas-snippet-dirs
+'("~/.emacs.d/snippets"                 ;; personal snippets
+  "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+  "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+  ))
+
+(yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
 (straight-use-package 'rainbow-delimiters)
 
