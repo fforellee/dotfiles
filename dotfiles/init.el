@@ -14,7 +14,7 @@
 
   (straight-use-package 'use-package)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
 ;Install doom themes
 (straight-use-package 'doom-themes)
 (load-theme 'doom-1337 t)
@@ -47,9 +47,11 @@
 (straight-use-package 'nix-mode)
 (straight-use-package 'haskell-mode)
 (straight-use-package 'lsp-haskell)
-
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;(add-to-list 'completion-ignored-extensions ".hi")
 
 (straight-use-package 'ansible)
 (straight-use-package 'yaml-mode)
@@ -64,30 +66,7 @@
 (evil-org-mode 1)
 
 (add-hook 'org-mode-hook 'evil-org-mode 1)
-
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(use-package org-superstar
-:after org
-:hook (org-mode . org-superstar-mode)
-:config
-  (set-face-attribute 'org-superstar-header-bullet nil :inherit 'fixed-pitched :height 180)
-:custom
-;; set the leading bullet to be a space. For alignment purposes I use an em-quad space (U+2001)
-(org-superstar-headline-bullets-list '(" "))
-(org-superstar-todo-bullet-alist '(("DONE" . ?✔)
-				   ("TODO" . ?⌖)
-				   ("ISSUE" . ?)
-				   ("BRANCH" . ?)
-				   ("FORK" . ?)
-				   ("MR" . ?)
-				   ("MERGED" . ?)
-				   ("GITHUB" . ?A)
-				   ("WRITING" . ?✍)
-				   ("WRITE" . ?✍)
-				   ))
-(org-superstar-special-todo-items t)
-(org-superstar-leading-bullet "")
-)
+(global-set-key [f9] 'org-capture)
 
 (straight-use-package 'vertico)
 (vertico-mode 1)
@@ -117,17 +96,17 @@
 
 (straight-use-package 'writeroom-mode)
 
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-(straight-use-package 'yasnippets)
-(straight-use-package 'yasnippet-snippets)
-(setq yas-snippet-dirs
-'("~/.emacs.d/snippets"                 ;; personal snippets
-  "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
-  "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
-  ))
+;; (yas-reload-all)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+;; (straight-use-package 'yasnippets)
+;; (straight-use-package 'yasnippet-snippets)
+;; (setq yas-snippet-dirs
+;; '("~/.emacs.d/snippets"                 ;; personal snippets
+;;   "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+;;   "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+;;   ))
 
-(yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
 (straight-use-package 'rainbow-delimiters)
 

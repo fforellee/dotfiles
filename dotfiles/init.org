@@ -1,4 +1,4 @@
-#+TITLE: My config file
++TITLE: My config file
 
 This is my config file for emacs, here I define many packages that use
 using a declarative system with the aid of straight.el.
@@ -21,10 +21,9 @@ using a declarative system with the aid of straight.el.
 
     (straight-use-package 'use-package)
 #+END_SRC
-
 * Ui  
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
+  ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
   ;Install doom themes
   (straight-use-package 'doom-themes)
   (load-theme 'doom-1337 t)
@@ -41,8 +40,10 @@ using a declarative system with the aid of straight.el.
   (toggle-scroll-bar -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
+  (fringe-mode -1)
+  (setq tab-bar-mode -1)
   ;Chose font
-  (set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+  ;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
   ;Set line numbers as relative
   (setq display-line-numbers-type 'relative)
 #+END_SRC
@@ -57,9 +58,14 @@ using a declarative system with the aid of straight.el.
 #+END_SRC
 *** Haskell setup/Nix Haskell
 #+BEGIN_SRC emacs-lisp
-  (straight-use-package 'nix-mode)
-  (straight-use-package 'haskell-mode)
-  (add-hook 'haskell-mode-hook #'lsp)
+    (straight-use-package 'nix-mode)
+    (straight-use-package 'haskell-mode)
+    (straight-use-package 'lsp-haskell)
+    (add-hook 'haskell-mode-hook #'lsp)
+    (add-hook 'haskell-literate-mode-hook #'lsp)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+    ;(add-to-list 'completion-ignored-extensions ".hi")
 #+END_SRC   
 *** Anisible/Yml setup
  #+BEGIN_SRC emacs-lisp
@@ -82,37 +88,8 @@ using a declarative system with the aid of straight.el.
 ** Org Mode 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook 'evil-org-mode 1)
+  (global-set-key [f9] 'org-capture)
 #+END_SRC
-*** org mode style
-    #+begin_src emacs-lisp 
-      (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-      (use-package org-superstar
-      :after org
-      :hook (org-mode . org-superstar-mode)
-      :config
-	(set-face-attribute 'org-superstar-header-bullet nil :inherit 'fixed-pitched :height 180)
-      :custom
-      ;; set the leading bullet to be a space. For alignment purposes I use an em-quad space (U+2001)
-      (org-superstar-headline-bullets-list '(" "))
-      (org-superstar-todo-bullet-alist '(("DONE" . ?✔)
-					 ("TODO" . ?⌖)
-					 ("ISSUE" . ?)
-					 ("BRANCH" . ?)
-					 ("FORK" . ?)
-					 ("MR" . ?)
-					 ("MERGED" . ?)
-					 ("GITHUB" . ?A)
-					 ("WRITING" . ?✍)
-					 ("WRITE" . ?✍)
-					 ))
-      (org-superstar-special-todo-items t)
-      (org-superstar-leading-bullet "")
-      )
-    #+end_src
-** Org Roam 
-   #+begin_src emacs-lisp
-   (straight-use-package 'org-roam)
-   #+end_src
 ** vertico mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'vertico)
@@ -124,10 +101,9 @@ using a declarative system with the aid of straight.el.
   (straight-use-package 'treemacs-evil)  ;treemacs evil mode
   (straight-use-package 'treemacs-magit) ;treemacs magit support
   ;treemacs icons and UI
-  (straight-use-package 'treemacs-all-the-icons
+  (straight-use-package 'treemacs-all-the-icons)
   (setq treemacs-width '25)
   (setq treemacs-user-mode-line-format 'none)
-  ;(setq doom-themes-treemacs-theme "doom-colors"))
 
   (global-set-key [f8] 'treemacs)
 #+END_SRC
@@ -158,7 +134,17 @@ using a declarative system with the aid of straight.el.
     #+end_src
 ** Yasnippets
     #+begin_src emacs-lisp
-    (straight-use-package 'yasnippets)
+      ;; (yas-reload-all)
+      ;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+      ;; (straight-use-package 'yasnippets)
+      ;; (straight-use-package 'yasnippet-snippets)
+      ;; (setq yas-snippet-dirs
+      ;; '("~/.emacs.d/snippets"                 ;; personal snippets
+      ;;   "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+      ;;   "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+      ;;   ))
+
+      ;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
     #+end_src
 ** Rainbow Delimiters 
    #+begin_src emacs-lisp
