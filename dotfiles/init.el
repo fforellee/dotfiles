@@ -22,7 +22,6 @@
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 ;Install icons packages
-(straight-use-package 'all-the-icons)
 (setq doom-modeline-major-mode-icon t)
 (use-package all-the-icons
 :if (display-graphic-p))
@@ -68,6 +67,10 @@
 (add-hook 'org-mode-hook 'evil-org-mode 1)
 (global-set-key [f9] 'org-capture)
 
+(straight-use-package 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-bullets-bullet-list '("✙" "♱" "♰" "☥" "✞" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
+
 (straight-use-package 'vertico)
 (vertico-mode 1)
 
@@ -109,6 +112,7 @@
 ;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
 (straight-use-package 'rainbow-delimiters)
+(setq rainbow-delimeters-mode 't)
 
 (straight-use-package 'rainbow-mode)
 

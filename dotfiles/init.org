@@ -1,4 +1,4 @@
-+TITLE: My config file
+#+TITLE: My config file
 
 This is my config file for emacs, here I define many packages that use
 using a declarative system with the aid of straight.el.
@@ -23,29 +23,28 @@ using a declarative system with the aid of straight.el.
 #+END_SRC
 * Ui  
 #+BEGIN_SRC emacs-lisp
-  ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
-  ;Install doom themes
-  (straight-use-package 'doom-themes)
-  (load-theme 'doom-1337 t)
-  ;Install doom modeline
-  (straight-use-package 'doom-modeline)
-  (doom-modeline-mode 1)
-  ;Install icons packages
-  (straight-use-package 'all-the-icons)
-  (setq doom-modeline-major-mode-icon t)
-  (use-package all-the-icons
-  :if (display-graphic-p))
-  ;Remove emacs bars
-  (menu-bar-mode '-1)
-  (toggle-scroll-bar -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (fringe-mode -1)
-  (setq tab-bar-mode -1)
-  ;Chose font
-  ;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-  ;Set line numbers as relative
-  (setq display-line-numbers-type 'relative)
+    ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
+    ;Install doom themes
+    (straight-use-package 'doom-themes)
+    (load-theme 'doom-1337 t)
+    ;Install doom modeline
+    (straight-use-package 'doom-modeline)
+    (doom-modeline-mode 1)
+    ;Install icons packages
+    (setq doom-modeline-major-mode-icon t)
+    (use-package all-the-icons
+    :if (display-graphic-p))
+    ;Remove emacs bars
+    (menu-bar-mode '-1)
+    (toggle-scroll-bar -1)
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)
+    (fringe-mode -1)
+    (setq tab-bar-mode -1)
+    ;Chose font
+    ;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+    ;Set line numbers as relative
+    (setq display-line-numbers-type 'relative)
 #+END_SRC
 * Packages
 ** Dap/Lsp mode
@@ -90,6 +89,12 @@ using a declarative system with the aid of straight.el.
   (add-hook 'org-mode-hook 'evil-org-mode 1)
   (global-set-key [f9] 'org-capture)
 #+END_SRC
+*** Org Bullet
+    #+begin_src emacs-lisp
+    (straight-use-package 'org-bullets)
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    (setq org-bullets-bullet-list '("✙" "♱" "♰" "☥" "✞" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
+    #+end_src
 ** vertico mode
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'vertico)
@@ -149,6 +154,7 @@ using a declarative system with the aid of straight.el.
 ** Rainbow Delimiters 
    #+begin_src emacs-lisp
    (straight-use-package 'rainbow-delimiters)
+   (setq rainbow-delimeters-mode 't)
    #+end_src
 ** Rainbow mode
    #+begin_src emacs-lisp
@@ -166,3 +172,5 @@ using a declarative system with the aid of straight.el.
 			   ("elpa"."https://melpa.org/packages/")))
   #+end_src
 
+
+  

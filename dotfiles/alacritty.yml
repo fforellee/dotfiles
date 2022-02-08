@@ -73,7 +73,7 @@ schemes:
 
   TomorrowNight: &TomorrowNight
     primary:
-      background: '#1d1f21'
+      background: '#111211'
       foreground: '#c5c8c6'
 
     cursor:
@@ -83,7 +83,7 @@ schemes:
     normal:
       black:   '#1d1f21'
       red:     '#cc6666'
-      green:   '#35bd68'
+      green:   '#cc6666'
       yellow:  '#e6c547'
       blue:    '#81a2be'
       magenta: '#b294bb'
