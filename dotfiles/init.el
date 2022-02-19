@@ -14,33 +14,31 @@
 
   (straight-use-package 'use-package)
 
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
 ;Install doom themes
 (straight-use-package 'doom-themes)
-(load-theme 'doom-1337 t)
+;(load-theme 'doom-laserwave t)
+(load-theme 'doom-gruvbox t)
 ;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 ;Install icons packages
 (setq doom-modeline-major-mode-icon t)
-(use-package all-the-icons
-:if (display-graphic-p))
 ;Remove emacs bars
 (menu-bar-mode '-1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode -1)
-(setq tab-bar-mode -1)
-;Chose font
-;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;(setq tab-bar-mode -1)
 ;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
 
 (straight-use-package 'lsp-mode)
 ;Lsp ui tweaks
 (setq lsp-headerline-breadcrumb-enable nil)
-;(straight-use-package 'dap-mode)
+(straight-use-package 'dap-mode)
+(add-hook 'prog-mode-hook 'lsp)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 (straight-use-package 'nix-mode)
@@ -60,7 +58,6 @@
 
 (straight-use-package 'evil)
 (straight-use-package 'evil-org-mode)
-(setq evil-want-C-u-scroll t)
 (evil-mode 1)
 (evil-org-mode 1)
 
@@ -99,24 +96,34 @@
 
 (straight-use-package 'writeroom-mode)
 
-;; (yas-reload-all)
-;; (add-hook 'prog-mode-hook #'yas-minor-mode)
-;; (straight-use-package 'yasnippets)
-;; (straight-use-package 'yasnippet-snippets)
-;; (setq yas-snippet-dirs
-;; '("~/.emacs.d/snippets"                 ;; personal snippets
-;;   "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
-;;   "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
-;;   ))
-
-;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
-
 (straight-use-package 'rainbow-delimiters)
 (setq rainbow-delimeters-mode 't)
 
 (straight-use-package 'rainbow-mode)
 
 (straight-use-package 'pdf-tools)
+
+(straight-use-package 'yasnippets)
+(straight-use-package 'yasnippet-snippets)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+(setq yas-snippet-dirs
+'("~/.emacs.d/snippets"                 ;; personal snippets
+"/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+"/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+))
+(yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+;;keybindings
+(global-set-key (kbd "C-c C-n") 'yas-new-snippet)
+(global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
+
+(use-package dired
+:ensure nil
+:commands (dired dired-jump)
+:bind(("C-x C-j" . dired-jump))
+:config
+(evil-collection-define-key 'normal 'dired-mode-map
+"h" 'dired-up-directory
+"l" 'dired-find-file))
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
