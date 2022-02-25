@@ -39,6 +39,7 @@
 (straight-use-package 'dap-mode)
 (add-hook 'prog-mode-hook 'lsp)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 (straight-use-package 'nix-mode)
@@ -102,6 +103,7 @@
 (straight-use-package 'rainbow-mode)
 
 (straight-use-package 'pdf-tools)
+(pdf-tools-install)
 
 (straight-use-package 'yasnippets)
 (straight-use-package 'yasnippet-snippets)
@@ -120,10 +122,9 @@
 :ensure nil
 :commands (dired dired-jump)
 :bind(("C-x C-j" . dired-jump))
-:config
-(evil-collection-define-key 'normal 'dired-mode-map
-"h" 'dired-up-directory
-"l" 'dired-find-file))
+)
+
+(straight-use-package 'emmet-mode)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")

@@ -53,6 +53,7 @@ using a declarative system with the aid of straight.el.
   (straight-use-package 'dap-mode)
   (add-hook 'prog-mode-hook 'lsp)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 #+END_SRC
 *** Haskell setup/Nix Haskell
@@ -153,6 +154,7 @@ using a declarative system with the aid of straight.el.
 ** Pdf-tools
    #+begin_src emacs-lisp
    (straight-use-package 'pdf-tools)
+   (pdf-tools-install)
    #+end_src
 ** Yas Snippets
    #+begin_src emacs-lisp
@@ -176,10 +178,11 @@ using a declarative system with the aid of straight.el.
     :ensure nil
     :commands (dired dired-jump)
     :bind(("C-x C-j" . dired-jump))
-    :config
-    (evil-collection-define-key 'normal 'dired-mode-map
-    "h" 'dired-up-directory
-    "l" 'dired-find-file))
+    )
+   #+end_src
+** Emmet mode
+   #+begin_src emacs-lisp
+   (straight-use-package 'emmet-mode)
    #+end_src
 * Melpa
   #+begin_src emacs-lisp
