@@ -22,6 +22,13 @@ using a declarative system with the aid of straight.el.
     (straight-use-package 'use-package)
 #+END_SRC
 
+* Preferences
+#+BEGIN_SRC emacs-lisp
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 25)
+  (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+#+END_SRC 
+
 * Ui  
 #+BEGIN_SRC emacs-lisp
   ;Install doom themes
@@ -39,7 +46,7 @@ using a declarative system with the aid of straight.el.
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (fringe-mode -1)
-  ;(setq tab-bar-mode -1)
+  (setq tab-bar-mode -1)
   ;Set line numbers as relative
   (setq display-line-numbers-type 'relative)
 #+END_SRC

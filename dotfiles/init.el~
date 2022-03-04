@@ -14,19 +14,18 @@
 
   (straight-use-package 'use-package)
 
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") ;; My Themes directory  
 ;Install doom themes
 (straight-use-package 'doom-themes)
-;(load-theme 'doom-laserwave t)
-(load-theme 'doom-gruvbox t)
+(load-theme 'doom-1337 t)
 ;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 ;Install icons packages
+(straight-use-package 'all-the-icons)
 (setq doom-modeline-major-mode-icon t)
+(use-package all-the-icons
+:if (display-graphic-p))
 ;Remove emacs bars
 (menu-bar-mode '-1)
 (toggle-scroll-bar -1)
@@ -34,16 +33,15 @@
 (scroll-bar-mode -1)
 (fringe-mode -1)
 (setq tab-bar-mode -1)
+;Chose font
+;(set-frame-font "-SRC-Hack Nerd Font Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 ;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
 
 (straight-use-package 'lsp-mode)
 ;Lsp ui tweaks
 (setq lsp-headerline-breadcrumb-enable nil)
-(straight-use-package 'dap-mode)
-(add-hook 'prog-mode-hook 'lsp)
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;(straight-use-package 'dap-mode)
 ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 (straight-use-package 'nix-mode)
@@ -63,15 +61,12 @@
 
 (straight-use-package 'evil)
 (straight-use-package 'evil-org-mode)
+(setq evil-want-C-u-scroll t)
 (evil-mode 1)
 (evil-org-mode 1)
 
 (add-hook 'org-mode-hook 'evil-org-mode 1)
 (global-set-key [f9] 'org-capture)
-
-(straight-use-package 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-bullets-bullet-list '("✙" "♱" "♰" "☥" "✞" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
 
 (straight-use-package 'vertico)
 (vertico-mode 1)
@@ -101,35 +96,38 @@
 
 (straight-use-package 'writeroom-mode)
 
+;; (yas-reload-all)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+;; (straight-use-package 'yasnippets)
+;; (straight-use-package 'yasnippet-snippets)
+;; (setq yas-snippet-dirs
+;; '("~/.emacs.d/snippets"                 ;; personal snippets
+;;   "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+;;   "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+;;   ))
+
+;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+
 (straight-use-package 'rainbow-delimiters)
-(setq rainbow-delimeters-mode 't)
 
 (straight-use-package 'rainbow-mode)
 
 (straight-use-package 'pdf-tools)
-(pdf-tools-install)
-
-(straight-use-package 'yasnippets)
-(straight-use-package 'yasnippet-snippets)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-(setq yas-snippet-dirs
-'("~/.emacs.d/snippets"                 ;; personal snippets
-"/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
-"/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
-))
-(yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
-;;keybindings
-(global-set-key (kbd "C-c C-n") 'yas-new-snippet)
-(global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
-
-(use-package dired
-:ensure nil
-:commands (dired dired-jump)
-:bind(("C-x C-j" . dired-jump))
-)
-
-(straight-use-package 'emmet-mode)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
 			 ("elpa"."https://melpa.org/packages/")))
+(put 'downcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("613aedadd3b9e2554f39afe760708fc3285bf594f6447822dd29f947f0775d6c" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
