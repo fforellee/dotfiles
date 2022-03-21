@@ -33,8 +33,8 @@ using a declarative system with the aid of straight.el.
 #+BEGIN_SRC emacs-lisp
   ;Install doom themes
   (straight-use-package 'doom-themes)
-  ;(load-theme 'doom-laserwave t)
-  (load-theme 'doom-gruvbox t)
+  ;(load-theme 'doom-gruvbox t)
+  (load-theme 'doom-monokai-classic t)
   ;Install doom modeline
   (straight-use-package 'doom-modeline)
   (doom-modeline-mode 1)
@@ -49,6 +49,8 @@ using a declarative system with the aid of straight.el.
   (setq tab-bar-mode -1)
   ;Set line numbers as relative
   (setq display-line-numbers-type 'relative)
+  ;Set font
+  ;(set-frame-font "-CYRE-Inconsolata Nerd Font-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1V")
 #+END_SRC
 
 * Packages
@@ -61,18 +63,23 @@ using a declarative system with the aid of straight.el.
   (add-hook 'prog-mode-hook 'lsp)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  ;(setq dap-auto-configure-features '(sessions locals controls tooltip))
+  (setq dap-auto-configure-features '(sessions locals controls tooltip))
+
+  ;Add dap chrome
+  (require 'dap-chrome)
+  (require 'dap-python)
 #+END_SRC
 *** Haskell setup/Nix Haskell
 #+BEGIN_SRC emacs-lisp
-    (straight-use-package 'nix-mode)
-    (straight-use-package 'haskell-mode)
-    (straight-use-package 'lsp-haskell)
-    (add-hook 'haskell-mode-hook #'lsp)
-    (add-hook 'haskell-literate-mode-hook #'lsp)
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-    ;(add-to-list 'completion-ignored-extensions ".hi")
+  (straight-use-package 'nix-mode)
+  (straight-use-package 'haskell-mode)
+  (straight-use-package 'lsp-haskell)
+  (add-hook 'haskell-mode-hook #'lsp)
+  (add-hook 'haskell-literate-mode-hook #'lsp)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  ;(add-to-list 'completion-ignored-extensions ".hi")
 #+END_SRC   
 *** Anisible/Yml setup
  #+BEGIN_SRC emacs-lisp
@@ -181,15 +188,20 @@ using a declarative system with the aid of straight.el.
    #+end_src
 ** Dired mode
    #+begin_src emacs-lisp
-    (use-package dired
-    :ensure nil
-    :commands (dired dired-jump)
-    :bind(("C-x C-j" . dired-jump))
-    )
+     (use-package dired
+     :ensure nil
+     :commands (dired dired-jump)
+     :bind(("C-x C-j" . dired-jump))
+     )
+     (add-hook 'diredmode-hook evil-mode -1)
    #+end_src
 ** Emmet mode
    #+begin_src emacs-lisp
    (straight-use-package 'emmet-mode)
+   #+end_src
+** Recent Mode
+   #+begin_src emacs-lisp
+   (straight-use-package 'recentf)
    #+end_src
 * Melpa
   #+begin_src emacs-lisp

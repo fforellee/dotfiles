@@ -20,8 +20,8 @@
 
 ;Install doom themes
 (straight-use-package 'doom-themes)
-;(load-theme 'doom-laserwave t)
-(load-theme 'doom-gruvbox t)
+;(load-theme 'doom-gruvbox t)
+(load-theme 'doom-monokai-classic t)
 ;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
@@ -36,6 +36,8 @@
 (setq tab-bar-mode -1)
 ;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
+;Set font
+;(set-frame-font "-CYRE-Inconsolata Nerd Font-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1V")
 
 (straight-use-package 'lsp-mode)
 ;Lsp ui tweaks
@@ -44,7 +46,11 @@
 (add-hook 'prog-mode-hook 'lsp)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;(setq dap-auto-configure-features '(sessions locals controls tooltip))
+(setq dap-auto-configure-features '(sessions locals controls tooltip))
+
+;Add dap chrome
+(require 'dap-chrome)
+(require 'dap-python)
 
 (straight-use-package 'nix-mode)
 (straight-use-package 'haskell-mode)
@@ -53,6 +59,7 @@
 (add-hook 'haskell-literate-mode-hook #'lsp)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;(add-to-list 'completion-ignored-extensions ".hi")
 
 (straight-use-package 'ansible)
@@ -127,8 +134,11 @@
 :commands (dired dired-jump)
 :bind(("C-x C-j" . dired-jump))
 )
+(add-hook 'diredmode-hook evil-mode -1)
 
 (straight-use-package 'emmet-mode)
+
+(straight-use-package 'recentf)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
