@@ -19,6 +19,8 @@ using a declarative system with the aid of straight.el.
 	(eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage))
 
+  
+    ;(set-frame-font "-CYRE-Inconsolata Nerd Font-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1" nil t)
     (straight-use-package 'use-package)
 #+END_SRC
 
@@ -87,6 +89,10 @@ using a declarative system with the aid of straight.el.
    (straight-use-package 'yaml-mode)
    (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
  #+END_SRC
+*** Php Setup
+    #+begin_src emacs-lisp
+    (straight-use-package 'php-mode)
+    #+end_src
 ** Company mode 
 #+BEGIN_SRC emacs-lisp
    (straight-use-package 'company-mode)

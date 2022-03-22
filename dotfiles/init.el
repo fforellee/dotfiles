@@ -12,6 +12,8 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+
+  ;(set-frame-font "-CYRE-Inconsolata Nerd Font-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1" nil t)
   (straight-use-package 'use-package)
 
 (recentf-mode 1)
