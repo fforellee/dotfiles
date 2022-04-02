@@ -13,36 +13,40 @@
   (load bootstrap-file nil 'nomessage))
 
 
-  ;(set-frame-font "-CYRE-Inconsolata Nerd Font-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1" nil t)
-  (straight-use-package 'use-package)
+					;(set-frame-font "-CYRE-Inconsolata Nerd Font-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1" nil t)
+(straight-use-package 'use-package)
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(setq make-backup-files nil) ;stop creating backup files
 
 ;Install doom themes
 (straight-use-package 'doom-themes)
-;(load-theme 'doom-gruvbox t)
+					;(load-theme 'doom-gruvbox t)
 (load-theme 'doom-monokai-classic t)
-;Install doom modeline
+					;Install doom modeline
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
-;Install icons packages
+					;Install icons packages
 (setq doom-modeline-major-mode-icon t)
-;Remove emacs bars
+					;Remove emacs bars
 (menu-bar-mode '-1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode -1)
 (setq tab-bar-mode -1)
-;Set line numbers as relative
+					;Set line numbers as relative
 (setq display-line-numbers-type 'relative)
-;Set font
-;(set-frame-font "-CYRE-Inconsolata Nerd Font-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1V")
+					;Set font
+					;Enable icons fore dired
+(straight-use-package 'all-the-icons-dired)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+					;(set-frame-font "-CYRE-Inconsolata Nerd Font-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1V")
 
 (straight-use-package 'lsp-mode)
-;Lsp ui tweaks
+					;Lsp ui tweaks
 (setq lsp-headerline-breadcrumb-enable nil)
 (straight-use-package 'dap-mode)
 (add-hook 'prog-mode-hook 'lsp)
@@ -50,7 +54,7 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (setq dap-auto-configure-features '(sessions locals controls tooltip))
 
-;Add dap chrome
+					;Add dap chrome
 (require 'dap-chrome)
 (require 'dap-python)
 
@@ -62,11 +66,13 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;(add-to-list 'completion-ignored-extensions ".hi")
+					;(add-to-list 'completion-ignored-extensions ".hi")
 
 (straight-use-package 'ansible)
 (straight-use-package 'yaml-mode)
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+
+(straight-use-package 'php-mode)
 
 (straight-use-package 'company-mode)
 
@@ -74,8 +80,11 @@
 (straight-use-package 'evil-org-mode)
 (evil-mode 1)
 (evil-org-mode 1)
+(setq evil-want-C-u-scroll t)
+(setq evil-want-fine-undo t)
 
 (add-hook 'org-mode-hook 'evil-org-mode 1)
+(add-hook 'org-mode-hook 'display-line-numbers-mode 1)
 (global-set-key [f9] 'org-capture)
 
 (straight-use-package 'org-bullets)
@@ -85,11 +94,11 @@
 (straight-use-package 'vertico)
 (vertico-mode 1)
 
-(straight-use-package 'treemacs)       ;install treemacs
-(straight-use-package 'treemacs-evil)  ;treemacs evil mode
-(straight-use-package 'treemacs-magit) ;treemacs magit support
-;treemacs icons and UI
-(straight-use-package 'treemacs-all-the-icons)
+(straight-use-package 'treemacs)                 ;install treemacs
+(straight-use-package 'treemacs-evil)            ;treemacs evil mode
+(straight-use-package 'treemacs-magit)           ;treemacs magit support
+(straight-use-package 'treemacs-all-the-icons)   ;treemacs icons and UI
+
 (setq treemacs-width '25)
 (setq treemacs-user-mode-line-format 'none)
 
@@ -122,25 +131,27 @@
 (straight-use-package 'yasnippet-snippets)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 (setq yas-snippet-dirs
-'("~/.emacs.d/snippets"                 ;; personal snippets
-"/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
-"/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
-))
+      '("~/.emacs.d/snippets"                 ;; personal snippets
+	"/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+	"/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+	))
 (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 ;;keybindings
 (global-set-key (kbd "C-c C-n") 'yas-new-snippet)
 (global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
 
 (use-package dired
-:ensure nil
-:commands (dired dired-jump)
-:bind(("C-x C-j" . dired-jump))
-)
+  :ensure nil
+  :commands (dired dired-jump)
+  :bind(("C-x C-j" . dired-jump))
+  )
 (add-hook 'diredmode-hook evil-mode -1)
 
 (straight-use-package 'emmet-mode)
 
 (straight-use-package 'recentf)
+
+(straight-use-package 'helm)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
