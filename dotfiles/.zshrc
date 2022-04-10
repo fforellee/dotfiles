@@ -1,6 +1,19 @@
 autoload -U colors && colors
-#PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-PS1="%{$fg[green]%}%>>>%{$reset_color%}%{$fg[yellow]%}%>>>%{$reset_color%}%{$fg[green]%}%>>>%{$reset_color%} %"
+
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '- ('$branch')'
+  fi
+}
+
+setopt prompt_subst
+
+PS1="%{$fg[blue]%}%>>>%{$reset_color%}%{$fg[yellow]%}%>>>%{$reset_color%}%{$fg[red]%}%>>>%{$reset_color%} %"
 
 # History in cache directory:
 HISTSIZE=10000

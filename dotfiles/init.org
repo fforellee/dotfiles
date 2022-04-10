@@ -73,6 +73,7 @@ using a declarative system with the aid of straight.el.
 
 					     ;Add dap chrome
      (require 'dap-chrome)
+     (require 'dap-node)
      (require 'dap-python)
    #+END_SRC
 *** Haskell setup/Nix Haskell
@@ -220,7 +221,11 @@ using a declarative system with the aid of straight.el.
    #+begin_src emacs-lisp
      (straight-use-package 'helm)
    #+end_src
-
+** Pdf-viewr-restore
+   #+begin_src emacs-lisp
+   (straight-use-package 'pdf-view-restore)
+   (add-hook 'pdf-view-mode-hook 'pdf-view-restore)
+   #+end_src
 * Melpa
   #+begin_src emacs-lisp
     (setq package-archives '(("melpa" . "https://melpa.org/packages/")

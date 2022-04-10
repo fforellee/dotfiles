@@ -73,7 +73,7 @@ schemes:
 
   TomorrowNight: &TomorrowNight
     primary:
-      background: '#272822'
+      background: '#161714'
       foreground: '#c5c8c6'
 
     cursor:

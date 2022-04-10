@@ -56,6 +56,7 @@
 
 					;Add dap chrome
 (require 'dap-chrome)
+(require 'dap-node)
 (require 'dap-python)
 
 (straight-use-package 'nix-mode)
@@ -152,6 +153,9 @@
 (straight-use-package 'recentf)
 
 (straight-use-package 'helm)
+
+(straight-use-package 'pdf-view-restore)
+(add-hook 'pdf-view-mode-hook 'pdf-view-restore)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")
