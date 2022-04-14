@@ -13,7 +13,7 @@ function git_branch_name()
 
 setopt prompt_subst
 
-PS1="%{$fg[blue]%}%>>>%{$reset_color%}%{$fg[yellow]%}%>>>%{$reset_color%}%{$fg[red]%}%>>>%{$reset_color%} %"
+PS1="%{$fg[blue]%}%>>>%{$reset_color%}%{$fg[green]%}%>>>%{$reset_color%}%{$fg[red]%}%>>>%{$reset_color%} %"
 
 # History in cache directory:
 HISTSIZE=10000

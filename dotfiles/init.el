@@ -84,6 +84,9 @@
 (setq evil-want-C-u-scroll t)
 (setq evil-want-fine-undo t)
 
+;(global-undo-tree-mode 1) 
+;(evil-set-undo-system 'undo-tree)
+
 (add-hook 'org-mode-hook 'evil-org-mode 1)
 (add-hook 'org-mode-hook 'display-line-numbers-mode 1)
 (global-set-key [f9] 'org-capture)
@@ -141,12 +144,11 @@
 (global-set-key (kbd "C-c C-n") 'yas-new-snippet)
 (global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
 
-(use-package dired
-  :ensure nil
-  :commands (dired dired-jump)
-  :bind(("C-x C-j" . dired-jump))
-  )
-(add-hook 'diredmode-hook evil-mode -1)
+;; (use-package dired
+;;   :ensure nil
+;;   :commands (dired dired-jump)
+;;   :bind(("C-x C-j" . dired-jump))
+;; (add-hook 'diredmode-hook evil-mode -1))
 
 (straight-use-package 'emmet-mode)
 
@@ -155,7 +157,9 @@
 (straight-use-package 'helm)
 
 (straight-use-package 'pdf-view-restore)
-(add-hook 'pdf-view-mode-hook 'pdf-view-restore)
+(add-hook'pdf-view-mode-hook 'pdf-view-restore 1)
+
+(straight-use-package 'undo-tree)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org"."https://orgmode.org/elpa/")

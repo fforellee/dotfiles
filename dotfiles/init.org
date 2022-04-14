@@ -110,6 +110,9 @@ using a declarative system with the aid of straight.el.
      (evil-org-mode 1)
      (setq evil-want-C-u-scroll t)
      (setq evil-want-fine-undo t)
+     
+     ;(global-undo-tree-mode 1) 
+     ;(evil-set-undo-system 'undo-tree)
    #+END_SRC
 ** Org Mode 
    #+BEGIN_SRC emacs-lisp
@@ -202,12 +205,11 @@ using a declarative system with the aid of straight.el.
    #+end_src
 ** Dired mode
    #+begin_src emacs-lisp
-     (use-package dired
-       :ensure nil
-       :commands (dired dired-jump)
-       :bind(("C-x C-j" . dired-jump))
-       )
-     (add-hook 'diredmode-hook evil-mode -1)
+     ;; (use-package dired
+     ;;   :ensure nil
+     ;;   :commands (dired dired-jump)
+     ;;   :bind(("C-x C-j" . dired-jump))
+     ;; (add-hook 'diredmode-hook evil-mode -1))
    #+end_src
 ** Emmet mode
    #+begin_src emacs-lisp
@@ -221,10 +223,15 @@ using a declarative system with the aid of straight.el.
    #+begin_src emacs-lisp
      (straight-use-package 'helm)
    #+end_src
-** Pdf-viewr-restore
+** Pdf-view-restore
    #+begin_src emacs-lisp
    (straight-use-package 'pdf-view-restore)
-   (add-hook 'pdf-view-mode-hook 'pdf-view-restore)
+   (add-hook'pdf-view-mode-hook 'pdf-view-restore 1)
+
+   #+end_src
+** Undo tree
+   #+begin_src emacs-lisp
+   (straight-use-package 'undo-tree)
    #+end_src
 * Melpa
   #+begin_src emacs-lisp
