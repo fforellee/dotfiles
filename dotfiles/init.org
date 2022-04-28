@@ -98,6 +98,11 @@ using a declarative system with the aid of straight.el.
     #+begin_src emacs-lisp
       (straight-use-package 'php-mode)
     #+end_src
+*** Java setup
+    #+begin_src emacs-lisp
+      (straight-use-package 'lsp-java)
+      (add-hook 'java-mode-hook #'lsp)
+    #+end_src
 ** Company mode 
    #+BEGIN_SRC emacs-lisp
      (straight-use-package 'company-mode)
@@ -131,6 +136,18 @@ using a declarative system with the aid of straight.el.
     (global-set-key (kbd "C-c C-\") 'yas-new-snippet)
 
     #+end_src
+** Org Roam
+   #+begin_src emacs-lisp
+     (use-package org-roam
+		  :ensure t
+		  :custom
+		  (org-roam-directory "~/baum/baum")
+		  :bind (("C-c n l" . org-roam-buffer-toggle)
+			 ("C-c n f" . org-roam-node-find)
+			 ("C-c n i" . org-roam-node-insert))
+		  :config
+		  (org-roam-setup))
+   #+end_src
 ** vertico mode
    #+BEGIN_SRC emacs-lisp
      (straight-use-package 'vertico)
@@ -142,6 +159,7 @@ using a declarative system with the aid of straight.el.
      (straight-use-package 'treemacs-evil)            ;treemacs evil mode
      (straight-use-package 'treemacs-magit)           ;treemacs magit support
      (straight-use-package 'treemacs-all-the-icons)   ;treemacs icons and UI
+     (setq doom-themes-treemacs-theme "doom-colors")
 
      (setq treemacs-width '25)
      (setq treemacs-user-mode-line-format 'none)
@@ -205,11 +223,7 @@ using a declarative system with the aid of straight.el.
    #+end_src
 ** Dired mode
    #+begin_src emacs-lisp
-     ;; (use-package dired
-     ;;   :ensure nil
-     ;;   :commands (dired dired-jump)
-     ;;   :bind(("C-x C-j" . dired-jump))
-     ;; (add-hook 'diredmode-hook evil-mode -1))
+     (global-set-key (kbd "C-x C-j") 'dired-jump)
    #+end_src
 ** Emmet mode
    #+begin_src emacs-lisp

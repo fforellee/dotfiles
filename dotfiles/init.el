@@ -75,6 +75,9 @@
 
 (straight-use-package 'php-mode)
 
+(straight-use-package 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
 (straight-use-package 'company-mode)
 
 (straight-use-package 'evil)
@@ -95,6 +98,16 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-bullets-bullet-list '("✙" "♱" "♰" "☥" "✞" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
 
+(use-package org-roam
+	     :ensure t
+	     :custom
+	     (org-roam-directory "~/baum/baum")
+	     :bind (("C-c n l" . org-roam-buffer-toggle)
+		    ("C-c n f" . org-roam-node-find)
+		    ("C-c n i" . org-roam-node-insert))
+	     :config
+	     (org-roam-setup))
+
 (straight-use-package 'vertico)
 (vertico-mode 1)
 
@@ -102,6 +115,7 @@
 (straight-use-package 'treemacs-evil)            ;treemacs evil mode
 (straight-use-package 'treemacs-magit)           ;treemacs magit support
 (straight-use-package 'treemacs-all-the-icons)   ;treemacs icons and UI
+(setq doom-themes-treemacs-theme "doom-colors")
 
 (setq treemacs-width '25)
 (setq treemacs-user-mode-line-format 'none)
@@ -144,11 +158,7 @@
 (global-set-key (kbd "C-c C-n") 'yas-new-snippet)
 (global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
 
-;; (use-package dired
-;;   :ensure nil
-;;   :commands (dired dired-jump)
-;;   :bind(("C-x C-j" . dired-jump))
-;; (add-hook 'diredmode-hook evil-mode -1))
+(global-set-key (kbd "C-x C-j") 'dired-jump)
 
 (straight-use-package 'emmet-mode)
 
