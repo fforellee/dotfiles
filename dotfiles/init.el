@@ -20,6 +20,7 @@
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 (setq make-backup-files nil) ;stop creating backup files
+(add-hook 'after-init-hook 'org-agenda-list) ; add agenda screen startup
 
 ;Install doom themes
 (straight-use-package 'doom-themes)
@@ -96,7 +97,7 @@
 
 (straight-use-package 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-bullets-bullet-list '("✙" "♱" "♰" "☥" "✞" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
+(setq org-bullets-bullet-list '("❁" "✿" "☀" "✿" "☀" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
 
 (use-package org-roam
 	     :ensure t
@@ -110,17 +111,6 @@
 
 (straight-use-package 'vertico)
 (vertico-mode 1)
-
-(straight-use-package 'treemacs)                 ;install treemacs
-(straight-use-package 'treemacs-evil)            ;treemacs evil mode
-(straight-use-package 'treemacs-magit)           ;treemacs magit support
-(straight-use-package 'treemacs-all-the-icons)   ;treemacs icons and UI
-(setq doom-themes-treemacs-theme "doom-colors")
-
-(setq treemacs-width '25)
-(setq treemacs-user-mode-line-format 'none)
-
-(global-set-key [f8] 'treemacs)
 
 (straight-use-package 'magit)
 

@@ -84,3 +84,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 #aliases
 alias t=tmux
+export PATH=$PATH:~/scripts
