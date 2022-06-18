@@ -25,8 +25,11 @@
 ;Install doom themes
 (straight-use-package 'doom-themes)
 					;(load-theme 'doom-gruvbox t)
-(load-theme 'doom-monokai-classic t)
+;(load-theme 'doom-monokai-classic t)
 					;Install doom modeline
+(set 'custom-theme-directory "~/dotfiles/themes")
+(load-theme 'xoi)
+
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 					;Install icons packages
@@ -82,16 +85,14 @@
 (straight-use-package 'company-mode)
 
 (straight-use-package 'evil)
-(straight-use-package 'evil-org-mode)
+(straight-use-package 'evil-org)
 (evil-mode 1)
-(evil-org-mode 1)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-fine-undo t)
 
 ;(global-undo-tree-mode 1) 
 ;(evil-set-undo-system 'undo-tree)
 
-(add-hook 'org-mode-hook 'evil-org-mode 1)
 (add-hook 'org-mode-hook 'display-line-numbers-mode 1)
 (global-set-key [f9] 'org-capture)
 
@@ -99,15 +100,12 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-bullets-bullet-list '("❁" "✿" "☀" "✿" "☀" "✟" "✝" "†" "✠" "✚" "✜" "✛" "✢" "✣" "✤" "✥"))
 
-(use-package org-roam
-	     :ensure t
-	     :custom
-	     (org-roam-directory "~/baum/baum")
-	     :bind (("C-c n l" . org-roam-buffer-toggle)
-		    ("C-c n f" . org-roam-node-find)
-		    ("C-c n i" . org-roam-node-insert))
-	     :config
-	     (org-roam-setup))
+(straight-use-package 'org-roam)
+(set 'org-roam-directory "~/baum/baum")
+(global-set-key (kbd "C-c n f") 'org-roam-node-find)
+(global-set-key (kbd "C-c n i") 'org-roam-node-insert)
+(global-set-key (kbd "C-c n i") 'org-id-get-create)
+(global-set-key (kbd "C-c n s") 'org-roam-db-sync)
 
 (straight-use-package 'vertico)
 (vertico-mode 1)
@@ -162,5 +160,5 @@
 (straight-use-package 'undo-tree)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org"."https://orgmode.org/elpa/")
+		 ("org"."https://orgmode.org/elpa/")
 			 ("elpa"."https://melpa.org/packages/")))

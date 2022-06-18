@@ -22,7 +22,6 @@ fakeroot
 feh
 file
 findutils
-firefox
 flex
 fscrypt
 fzf
@@ -120,7 +119,6 @@ which
 whois
 wireshark-qt
 xf86-video-vesa
-xmobar
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
@@ -185,7 +183,6 @@ chromium
 clisp
 cronie
 dbeaver
-dmenu
 dmidecode
 dnsmasq
 docker

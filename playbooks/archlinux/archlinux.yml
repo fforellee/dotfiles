@@ -1,10 +1,24 @@
 - name: setup system
   hosts: localhost
   tasks:
-  - name: create directory tree
+
+  - name: Clone dotfiles
+    become: yes
+    become_user: fforelle
+    ansible.builtin.git:
+      repo: https://github.com/fforellee/dotfiles
+      dest: ~/
+
+  - name: create directory structure
+    become: yes
+    become_user: fforelle
     file:
-        path: ~/.config 
+        path: "{{ item }}"
         state: directory
+    loop:
+      - ~/dev
+      - ~/lab
+      - ~/scripts
 
   - name: install packages
     when: ansible_facts['distribution'] == "Archlinux"
@@ -187,4 +201,3 @@
         - zathura-pdf-poppler
         - zsh
       state: present
-      
