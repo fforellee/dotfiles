@@ -38,10 +38,10 @@ using a declarative system with the aid of straight.el.
 					    ;Install doom themes
     (straight-use-package 'doom-themes)
 					    ;(load-theme 'doom-gruvbox t)
-    ;(load-theme 'doom-monokai-classic t)
+    (load-theme 'doom-monokai-classic t)
 					    ;Install doom modeline
     (set 'custom-theme-directory "~/dotfiles/themes")
-    (load-theme 'xoi)
+    ;(load-theme 'xoi)
 
     (straight-use-package 'doom-modeline)
     (doom-modeline-mode 1)
@@ -124,6 +124,7 @@ using a declarative system with the aid of straight.el.
    #+END_SRC
 ** Org Mode 
    #+BEGIN_SRC emacs-lisp
+     (add-hook 'org-mode-hook 'evil-org-mode)
      (add-hook 'org-mode-hook 'display-line-numbers-mode 1)
      (global-set-key [f9] 'org-capture)
    #+END_SRC
@@ -204,8 +205,8 @@ using a declarative system with the aid of straight.el.
 	     ))
      (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
      ;;keybindings
-     (global-set-key (kbd "C-c C-n") 'yas-new-snippet)
-     (global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
+     (global-set-key (kbd "C-c C-0") 'yas-new-snippet)
+     (global-set-key (kbd "C-c C-9") 'yas-insert-snippet)
 
    #+end_src
 ** Dired mode
@@ -234,6 +235,10 @@ using a declarative system with the aid of straight.el.
    #+begin_src emacs-lisp
    (straight-use-package 'undo-tree)
    #+end_src
+** Treemacs
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'treemacs)
+#+END_SRC
 * Melpa
   #+begin_src emacs-lisp
     (setq package-archives '(("melpa" . "https://melpa.org/packages/")

@@ -1,3 +1,4 @@
+alias tmux="TERM=screen-256color-bce tmux"
 autoload -U colors && colors
 
 function git_branch_name()
@@ -85,3 +86,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #aliases
 alias t=tmux
 export PATH=$PATH:~/scripts
+
+#libs
+export PATH=$PATH:~/Android/Sdk/platform-tools #Android tools

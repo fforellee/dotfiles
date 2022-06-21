@@ -19,6 +19,7 @@
       - ~/dev
       - ~/lab
       - ~/scripts
+      - ~/music
 
   - name: install packages
     when: ansible_facts['distribution'] == "Archlinux"
@@ -64,9 +65,6 @@
         - grep
         - groff
         - gzip
-        - i3-gaps
-        - i3blocks
-        - i3lock
         - i3status
         - intel-ucode
         - iptables-nft

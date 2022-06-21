@@ -25,10 +25,10 @@
 ;Install doom themes
 (straight-use-package 'doom-themes)
 					;(load-theme 'doom-gruvbox t)
-;(load-theme 'doom-monokai-classic t)
+(load-theme 'doom-monokai-classic t)
 					;Install doom modeline
 (set 'custom-theme-directory "~/dotfiles/themes")
-(load-theme 'xoi)
+;(load-theme 'xoi)
 
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
@@ -93,6 +93,7 @@
 ;(global-undo-tree-mode 1) 
 ;(evil-set-undo-system 'undo-tree)
 
+(add-hook 'org-mode-hook 'evil-org-mode)
 (add-hook 'org-mode-hook 'display-line-numbers-mode 1)
 (global-set-key [f9] 'org-capture)
 
@@ -143,8 +144,8 @@
 	))
 (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 ;;keybindings
-(global-set-key (kbd "C-c C-n") 'yas-new-snippet)
-(global-set-key (kbd "C-c C-i") 'yas-insert-snippet)
+(global-set-key (kbd "C-c C-0") 'yas-new-snippet)
+(global-set-key (kbd "C-c C-9") 'yas-insert-snippet)
 
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 
@@ -158,6 +159,8 @@
 (add-hook'pdf-view-mode-hook 'pdf-view-restore 1)
 
 (straight-use-package 'undo-tree)
+
+(straight-use-package 'treemacs)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 		 ("org"."https://orgmode.org/elpa/")

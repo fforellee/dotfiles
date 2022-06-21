@@ -1,5 +1,7 @@
 " ~J~o~r~m~u~n~g~a~n~d~r~
 "leader key
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
 let mapleader ="\<Tab>"
 set wrap
 colorscheme xoix
@@ -232,6 +234,7 @@ noremap <leader>d :diffthis <CR>
 noremap <C-p>     :Files <CR>
 noremap <leader>vv :vert term<CR>
 noremap <leader>vh :term<CR>
+noremap <leader>e :Explore<CR>
 "Plug Keybings
 noremap <leader>P :PlugInstall <CR>
 noremap <leader>Pc :PlugClean <CR>
