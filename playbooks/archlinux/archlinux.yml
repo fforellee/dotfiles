@@ -198,4 +198,5 @@
         - zathura
         - zathura-pdf-poppler
         - zsh
+        - cargo
       state: present

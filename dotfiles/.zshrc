@@ -88,4 +88,11 @@ alias t=tmux
 export PATH=$PATH:~/scripts
 
 #libs
-export PATH=$PATH:~/Android/Sdk/platform-tools #Android tools
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/build-tools
+export PATH=$PATH:~/.local/bin
+
+# Glob qualifiers
+setopt no_bare_glob_qual

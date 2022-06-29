@@ -42,17 +42,29 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'               "Vim coc snippets
     Plug 'prabirshrestha/vim-lsp'           "Vim lsp
     Plug 'scrooloose/nerdtree'              "Tree view of files
-    Plug 'szw/vim-maximizer'                "maximize window
     Plug 'tpope/vim-commentary'             "Vim automatic commentary
     Plug 'VundleVim/Vundle.vim'             "Vim plugin manager
     Plug 'neoclide/coc.nvim',{'branch':'release'} 
+    Plug 'ackyshake/VimCompletesMe'
+    Plug 'ackyshake/VimCompletesMe'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'junegunn/vim-peekaboo'
+    Plug 'frazrepo/vim-rainbow'
+    Plug 'mhinz/vim-signify'
+    "Plug svermeulen/vim-macrobatics
     " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
+    Plug 'mxw/vim-jsx'
 call plug#end()
 call vundle#begin()
     Plugin 'iamcco/markdown-preview.vim'
-    Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
+" COC CONFIG
+"
+" To make completion works like VSCode
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -156,7 +168,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+"nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -219,14 +231,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " End of Coc plugin config
 "
 "Vim keybings
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-k> :tabnext<CR>
 noremap <leader>h :%!xxd <CR><CR>
 noremap <leader>H :%!xxd -r <CR><CR>
 noremap <leader>bh :%!xxd -b <CR><CR>
-noremap <leader>ph :%!xxd -p <CR><CR>
+noremap <leader>ph :%!xxd -p <CR><CR>  
 noremap <leader><Tab> :tabedit <CR><CR>
-noremap <leader>t     :tabedit 
 noremap <leader>vr :reg <CR>
 noremap <leader>vm :marks <CR>
 noremap <leader>C :colorscheme 
@@ -235,6 +244,8 @@ noremap <C-p>     :Files <CR>
 noremap <leader>vv :vert term<CR>
 noremap <leader>vh :term<CR>
 noremap <leader>e :Explore<CR>
+noremap <leader>q :only <CR>
+noremap <leader>t :tabonly <CR>
 "Plug Keybings
 noremap <leader>P :PlugInstall <CR>
 noremap <leader>Pc :PlugClean <CR>

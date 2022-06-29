@@ -170,3 +170,6 @@ bindsym $mod+r mode "resize"
 
 font pango:DejaVu Sans Mono 0
 for_window [class="^.*"] border pixel 0
+
+#Custom keybindins
+bindsym $mod+Shift+m exec --no-startup-id polybar-msg cmd toggle
