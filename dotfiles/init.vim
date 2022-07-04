@@ -47,14 +47,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim',{'branch':'release'} 
     Plug 'ackyshake/VimCompletesMe'
     Plug 'ackyshake/VimCompletesMe'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/vim-peekaboo'
-    Plug 'frazrepo/vim-rainbow'
     Plug 'mhinz/vim-signify'
     "Plug svermeulen/vim-macrobatics
     " Syntax highlighter
     Plug 'uiiaoo/java-syntax.vim'
     Plug 'mxw/vim-jsx'
+    Plug 'frazrepo/vim-rainbow'
 call plug#end()
 call vundle#begin()
     Plugin 'iamcco/markdown-preview.vim'

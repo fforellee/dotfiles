@@ -14,7 +14,7 @@ function git_branch_name()
 
 setopt prompt_subst
 
-PS1="%{$fg[blue]%}%>>>%{$reset_color%}%{$fg[green]%}%>>>%{$reset_color%}%{$fg[red]%}%>>>%{$reset_color%} %"
+PS1="%{ $fg[blue]%}%>>>%{$reset_color%}%{$fg[green]%}%>>>%{$reset_color%}%{$fg[red]%}%>>>%{$reset_color%} %"
 
 # History in cache directory:
 HISTSIZE=10000
@@ -96,3 +96,10 @@ export PATH=$PATH:~/.local/bin
 
 # Glob qualifiers
 setopt no_bare_glob_qual
+# Colors
+alias ls='lsd -l'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
