@@ -1,2 +1,3 @@
-#+title: Doom emacs config file
+#+title: fforelle's doom emacs config file
+ *S E N S E* of Impeding /D^0^0^M/
 * Table of content
