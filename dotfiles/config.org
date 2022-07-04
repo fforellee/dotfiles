@@ -1,3 +1,17 @@
 #+title: fforelle's doom emacs config file
- *S E N S E* of Impeding /D^0^0^M/
+
+*~J~o~r~m~u~n~g~a~n~d~R*
+
 * Table of content
+
+* UI
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-dracula)
+(setq display-line-numbers "relative")
+#+end_src
+* Org mode config
+#+begin_src emacs-lisp
+(setq user-full-name "Icaro"
+      user-mail-address "icaro.onofre.s@gmail.c")
+#+end_src
+** Org mode UI tweaks

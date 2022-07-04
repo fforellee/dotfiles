@@ -40,7 +40,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/baum/baum")
+(setq org-agenda-files "~/baum/baum/agenda")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -76,5 +77,6 @@
 ;; they are implemented.
 (setq org-roam-directory "~/baum/baum")
 
+(straight-use-package 'rainbow-mode)
 
 (provide 'config);;; config ends here

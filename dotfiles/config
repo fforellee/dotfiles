@@ -160,7 +160,7 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $mod+
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -173,3 +173,6 @@ for_window [class="^.*"] border pixel 0
 
 #Custom keybindins
 bindsym $mod+Shift+m exec --no-startup-id polybar-msg cmd toggle
+
+#Start Aim lab
+bindsym $mod+Shift+a exec steam steam://rungameid/714010   
