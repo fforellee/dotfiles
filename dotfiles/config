@@ -176,3 +176,4 @@ bindsym $mod+Shift+m exec --no-startup-id polybar-msg cmd toggle
 
 #Start Aim lab
 bindsym $mod+Shift+a exec steam steam://rungameid/714010   
+bindsym $mod+Shift+s exec steam 

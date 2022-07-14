@@ -3,15 +3,27 @@
 *~J~o~r~m~u~n~g~a~n~d~R*
 
 * Table of content
-
 * UI
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-dracula)
-(setq display-line-numbers "relative")
+(setq doom-theme 'doom-acario-light)
+(setq display-line-numbers-type 'relative)
 #+end_src
+* Rainbow mode {(rainbow parenting)}
+#+begin_src emacs-lisp
+(straight-use-package 'rainbow-mode)
+#+end_src
+
 * Org mode config
 #+begin_src emacs-lisp
 (setq user-full-name "Icaro"
       user-mail-address "icaro.onofre.s@gmail.c")
 #+end_src
 ** Org mode UI tweaks
+
+** Org fonts
+#+begin_src emacs-lisp
+
+#+end_src
+* mu4e
+#+begin_src emacs-lisp
+#+end_src

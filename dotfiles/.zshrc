@@ -97,9 +97,12 @@ export PATH=$PATH:~/.local/bin
 # Glob qualifiers
 setopt no_bare_glob_qual
 # Colors
-alias ls='lsd -l'
+alias lss='lsd -l'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias es="emacsclient -nw -c -a 'emacs'"
+alias e="emacs -nw"
+

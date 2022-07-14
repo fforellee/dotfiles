@@ -31,6 +31,7 @@ nnoremap J mzJ`z
 inoremap , ,<C-g>u
 
 call plug#begin('~/.vim/plugged')
+    Plug 'itchyny/lightline.vim'                "Vim Statusline
     Plug 'lilydjwg/colorizer'               "vim color highlighing
     Plug 'vimwiki/vimwiki'                  "Vim notetaking plugin
     " Plug 'puremourning/vimspector'          "Vim debugger

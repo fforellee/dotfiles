@@ -22,11 +22,11 @@
 
        :completion
        company           ; the ultimate code completion backend
-       helm              ; the *other* search engine for love and life
+       ;;helm              ; the *other* search engine for love and life
        (ivy +fuzzy)
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-       vertico           ; the search engine of the future
+       vertico             ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -39,7 +39,7 @@
        ;;indent-guides     ; highlighted indent columns
        ;;ligatures         ; ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
-       modeline          ; snazzy, Atom-inspired modeline, plus API
+       ;;modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
@@ -77,7 +77,7 @@
        :term
        ;;eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
-       ;;term              ; basic terminal emulator for Emacs
+       term              ; basic terminal emulator for Emacs
        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
@@ -88,6 +88,7 @@
        :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
+       ;;(dap +lsp)
        debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
@@ -100,7 +101,7 @@
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       ;;pdf               ; pdf enhancements
+       pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
@@ -108,7 +109,6 @@
        tmux              ; an API for interacting with tmux
        ;;tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
-
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
        ;;tty               ; improve the terminal Emacs experience
@@ -177,11 +177,12 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       ;;yaml              ; JSON, but readable
+       yaml              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
        ;;(mu4e +org +gmail)
+       mu4e
        ;;notmuch
        ;;(wanderlust +gmail)
 
