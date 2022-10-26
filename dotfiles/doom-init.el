@@ -68,7 +68,7 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +icons)    ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -88,6 +88,7 @@
        :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
+       lsp
        ;;(dap +lsp)
        debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
@@ -197,3 +198,4 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+

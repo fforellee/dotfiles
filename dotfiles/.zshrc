@@ -97,7 +97,8 @@ export PATH=$PATH:~/.local/bin
 # Glob qualifiers
 setopt no_bare_glob_qual
 # Colors
-alias lss='lsd -l'
+alias l='lsd -l'
+alias rr='ranger'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'

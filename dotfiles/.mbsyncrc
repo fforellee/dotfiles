@@ -1,0 +1,20 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User icaro.onofre.s@gmail.com
+Pass agbyktbxhjrniqwi
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MailDirStore gmail-local
+Subfolders Verbatim
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/inbox/
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail/Starred]" "[Gmail/All]"
+SyncState *

@@ -1,32 +1,59 @@
 #+title: fforelle's doom emacs config file
-
 *~J~o~r~m~u~n~g~a~n~d~R*
+* Table of contents
 
-* Table of content
-* UI
+* Emacs
+** UI
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-acario-light)
 (setq display-line-numbers-type 'relative)
 #+end_src
-* Rainbow mode {(rainbow parenting)}
+** Rainbow mode {(rainbow parenting)}
 #+begin_src emacs-lisp
-(rainbow-mode 1)
 #+end_src
-* Org roam config
+** Org roam config
 #+begin_src emacs-lisp
 (setq org-roam-directory "~/baum/baum")
 #+end_src
-* Org mode config
+** Org mode config
 #+begin_src emacs-lisp
 (setq user-full-name "Icaro"
       user-mail-address "icaro.onofre.s@gmail.c")
-#+end_src
-** Org mode UI tweaks
 
-** Org fonts
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+*** Org mode UI tweaks
+
+*** Org fonts
 #+begin_src emacs-lisp
 
 #+end_src
-* mu4e
+** mu4e
 #+begin_src emacs-lisp
+
+#+end_src
+** Dired
+*** Ui
+#+begin_src emacs-lisp
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+#+end_src
+** Programming
+*** Dap mode
+**** Python
+Python debugger config
+#+begin_src emacs-lisp
+(dap-register-debug-template "My App"
+  (list :type "python"
+        :args "-i"
+        :cwd nil
+        :env '(("DEBUG" . "1"))
+        :target-module (expand-file-name "~/src/myapp/.env/bin/myapp")
+        :request "launch"
+        :name "My App"))
+#+end_src
+*** packages
+#+begin_src elisp
+(packages! emmet-mode)
+(packages! vterm)
+
 #+end_src
