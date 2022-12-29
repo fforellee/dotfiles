@@ -19,7 +19,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec alacritty
+bindsym $mod+t exec urxvt
 
 # start a Browser
 bindsym $mod+q exec qutebrowser
@@ -40,10 +40,9 @@ bindsym $mod+x exec pavucontrol
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
- bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -show-icons"
+ bindsym $mod+p exec "rofi -combi-modi window,drun -show combi -show-icons"
 # Rofi password manager
- bindsym $mod+p exec "rofi-pass -combi-modi window,drun -show combi -show-icons"
- bindsym $mod+Shift+p exec "addpass"
+ bindsym $mod+Shift+p exec "rofi-pass -combi-modi window,drun -show combi -show-icons"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a

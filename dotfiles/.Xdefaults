@@ -38,7 +38,7 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-URxvt.font: xft:inconsolata:style=Regular:size=13
+URxvt.font: xft:inconsolata:style=Regular:size=10
 URxvt.boldFont: xft:inconsolata:style=Bold:size=13
 URxvt.italicFont: xft:inconsolata:style=Italic:size=13
 URxvt.boldItalicFont: xft:inconsolata:style=Bold Italic:size=13
